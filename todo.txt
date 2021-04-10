@@ -1,5 +1,5 @@
-reset hasła z maila dopiero jak konto aktywne
-walidacja na zmianie hasła z poziomu strony
+reset hasła z maila dopiero jak konto aktywne <- chyba ok ?
+walidacja na zmianie hasła z poziomu strony <- ok ?
 edytuj profil na mobile troche shit wyglada
-edytuj profil alerty że ustawienia konta zmienione etc
-edytuj profilm -> walidcaj na hasło + alerty ze haslo zmienionie etc
+edytuj profil alerty że ustawienia konta zmienione etc <- ok?
+edytuj profilm -> walidcaj na hasło + alerty ze haslo zmienionie etc <- ok ?

@@ -6,3 +6,17 @@
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
     background-color: #34D399;
 }
+.test-x{
+    width:700px;
+}
+.test-test{
+    width:100% !important;
+    background-color: red;
+}
+
+.box-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}

@@ -34,12 +34,26 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 include '../components/header.php';
 ?>
 <div class="align-items-start mt-8 sm:flex">
+
   <div class="nav flex-column nav-pills me-3 md:w-3/12" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-user-edit mr-4"></i>Edytuj profil</button>
     <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-shield-alt mr-4"></i>Hasła i bezpieczeństwo</button>
   </div>
+  
   <div class="tab-content sm:w-8/12 sm:mt-0" id="v-pills-tabContent">
     <!-- Edycja profilu -->
+    <div class="alert hidden alert-success " role="alert">
+        Ustawienia konta zostały zaktualizowane pomyślnie !
+    </div>
+    <div class="alert alert-warning hidden " role="alert">
+        Podane błędne hasło !
+    </div>
+    <div class="alert alert-danger hidden " role="alert">
+        Adres email jest już zajęty !
+    </div>
+    <div class="alert alert-primary hidden " role="alert">
+        Ten login jest już zajęty !
+    </div>
     <div class="tab-pane fade show active w-full mt-8 sm:mt-0 mx-auto" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
     <div class="w-full mx-auto  md:col-span-2">
       
@@ -105,11 +119,11 @@ include '../components/header.php';
       <div class="card w-11/12 p-4 mx-auto mt-8">
       <div class="col-span-6 sm:col-span-4">
       <h2 class="text-center text-2xl">Dane logowania</h2>
-      <form action="../../back/change_setting.php" method="POST">
+      <form action="../../back/change_setting.php" method="POST" class="mt-8">
                 <label for="email_address" class="block text-sm font-medium text-gray-700">Adres email</label>
                 <input type="text" name="email_address" id="email_address" value="<?php echo $json[0]['mail']; ?>" autocomplete="email" class="pl-2  mt-1 h-10 text-xl focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
-              <button type="submit" class="w-24 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <button type="submit" class="w-24 mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Zapisz
             </button>
       </form>
@@ -133,9 +147,7 @@ include '../components/header.php';
     </div>
     <!-- Hasło -->
     <div class="tab-pane fade mx-2 mt-8" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-    <div class="alert alert-warning hidden " role="alert">
-        Podane błędne hasło, konto nie zostało usunięte !
-    </div>
+  
     <div class="card p-4 shadow">
     <h2 class="p-4 text-3xl text-center font-light">Hasła i bezpieczeństwo</h2>
 
@@ -147,21 +159,22 @@ include '../components/header.php';
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Nowe hasło</label>
-            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="********">
+            <input type="password" class="pwd-first  form-control" id="formGroupExampleInput2" placeholder="********">
+            <p class="font-light pwd-register-error"></p>
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Powtórz</label>
-            <input type="password" name="newpassword" class="form-control" id="formGroupExampleInput2" placeholder="********">
+            <input type="password" name="newpassword" class="pwd-second form-control" id="formGroupExampleInput2" placeholder="********">
+            <p class="font-light pwdRepeat-register-error"></p>
+
         </div>
-        <button type="submit" class="sm:w-1/3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Zapisz
-        </button>
+        <button type="submit" class="w-40 send-btn btn bg-green-400 text-white">Zapisz</button>
         </form>
     </div>
     <div class="card shadow mt-8 p-2 text-center">
     <h2>Usuwanie konta</h2>
     <p class="fw-light text-dark">Pamiętaj ,że jest to czynność <span class="text-red-600">nieodwracalna</span> !</p>
-    <button type="submit" class="show-reset-btn mt-4 sm:w-1/3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <button type="submit" class="show-reset-btn mt-4 w-40 ml-4  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Usuń konto
     </button>
     </div>
@@ -185,6 +198,44 @@ if(isset($_GET["badPwd"])){
   showAlert(alertWarning,5000);
   </script>";
 }
+if(isset($_GET["settingsChanged2"])){
+  ?>
+  <?php
+  echo "<script>
+  let btnRegister = document.querySelector('#v-pills-profile-tab');
+  btnRegister.click();
+  </script>";
+
+
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertSuccess,5000);
+  </script>";
+}
+if(isset($_GET["settingsChanged"])){
+  
+
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertSuccess,5000);
+  </script>";
+}
+if(isset($_GET["loginTaken"])){
+  
+
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertPrimary,5000);
+  </script>";
+}
+if(isset($_GET["mailTaken"])){
+  
+
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertDanger,5000);
+  </script>";
+}
 ?>
 </body>
 </html>
@@ -202,3 +253,4 @@ if(isset($_GET["badPwd"])){
 
  
 </script>
+<script src="../scripts/resetPwdValidation.js"></script>

@@ -6,6 +6,7 @@ let pwdSecond = document.querySelector('.pwd-second');
 let sendBtn = document.querySelector('.send-btn');
 let pwdValidated = false;
 let pwdRepeatValidated = false;
+let pwdMatch = false;
 var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 sendBtn.disabled = true;
 pwdFirst.addEventListener('keyup',()=>{
@@ -34,12 +35,23 @@ pwdSecond.addEventListener('keyup',()=>{
     }
     checkValidate();
 })
-
-
-
+pwdSecond.addEventListener("keyup",()=>{
+    if (pwdSecond.value == pwdFirst.value)
+    {
+        pwdRepeatError.innerHTML = "";
+        pwdSecond.classList.remove('bg-red-100');
+        pwdMatch = true;
+    }else{
+        pwdRepeatError.innerHTML = "Wprowadzone hasła muszą być takie same";
+        pwdSecond.classList.add('bg-red-100');
+        pwdMatch= false;
+    }
+    checkValidate()
+    
+});
 
 function checkValidate(){   
-    if(pwdValidated & pwdRepeatValidated){
+    if(pwdValidated & pwdRepeatValidated & pwdMatch){
         sendBtn.disabled = false;
     }else{
         sendBtn.disabled = true;
