@@ -6,17 +6,19 @@
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
     background-color: #34D399;
 }
-.test-x{
-    width:700px;
-}
-.test-test{
-    width:100% !important;
-    background-color: red;
+.szeroki{
+    width:300% !important;
+    background:red;
+    transform: translateX(-66.666%);
 }
 
-.box-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+.general-div,.pricing-div,.personal-div{
+    width:33.333%;
+}
+
+@media(min-width:640px){
+    .szeroki{
+        width:140vw;
+        background:red;
+    }
 }
