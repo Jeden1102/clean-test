@@ -8,10 +8,19 @@
 }
 .szeroki{
     width:300% !important;
-    background:red;
-    transform: translateX(-66.666%);
-}
+    transition: .3s;
 
+}
+.step-0{
+    transform:translateX(0);
+}
+.step-1{
+    transform:translateX(-33.333%);
+
+}
+.step-2{
+    transform:translateX(-66.666%);
+}
 .general-div,.pricing-div,.personal-div{
     width:33.333%;
 }
@@ -19,6 +28,16 @@
 @media(min-width:640px){
     .szeroki{
         width:140vw;
-        background:red;
     }
+}
+.step-one-visual{
+    clip-path: polygon(59% 19%, 77% 52%, 61% 85%, 0 86%, 0 19%);
+    
+
+}
+.step-two-visual{
+    clip-path: polygon(0 19%, 59% 19%, 77% 52%, 61% 85%, 0 86%, 23% 51%);
+}
+.step-three-visual{
+    clip-path: polygon(0 19%, 59% 19%, 77% 52%, 61% 85%, 0 86%, 23% 51%);
 }

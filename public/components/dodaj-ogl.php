@@ -1,9 +1,19 @@
-<div class="shadow bg-red-400 overflow-x-hidden">
+<div class="shadow  overflow-x-hidden">
 <div class="szeroki flex">
-<div class="bg-yellow-200 general-div">
-<h2 class="p-4 text-3xl text-center font-light">Dodaj ogłoszenie</h2>
+<div class=" general-div">
+<img class="mx-auto mt-4 h-52" src="../assets/img/dodaj_ogloszenie.png" alt="">
+<?php
+
+$email = $_SESSION['email'];
+
+$sql = "SELECT * from user where mail = '$email'";
+$result = $conn->query($sql);
+
+$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+?>
     <div class="mt-3 md:mt-0 md:col-span-2">
-      <form action="#" method="POST">
+      <form action="../../back/dodaj-ogl.php" method="POST">
         <div class="shadow sm:rounded-md sm:overflow-hidden">
           <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
             <div class="grid grid-cols-3 gap-6">
@@ -13,7 +23,7 @@
                 </label>
                 <div class="mt-1 flex rounded-md shadow-sm">
           
-                  <input type="text" name="company_website" id="company_website" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Zlecę posprzątanie apartamentu">
+                  <input type="text" name="company_website" id="company_website" class="h-8 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Zlecę posprzątanie apartamentu">
                 </div>
               </div>
             </div>
@@ -23,7 +33,7 @@
                 Opis
               </label>
               <div class="mt-1">
-                <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
+                <textarea id="about" name="about" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
               </div>
              
             </div>
@@ -87,125 +97,75 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
           
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+           
+            <button type="button" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Dalej
             </button>
           </div>
           
         </div>
-      </form>
     </div>
 
 </div>
-<div class="pricing-div bg-black">
-x
-</div>
-<div class="w-1/2 bg-green-200 personal-div card  p-4">
-<form class="row g-3">
+
+<div class="w-1/2  personal-div card  p-4">
+<img class="mx-auto mt-4 h-52" src="../assets/img/personal_info.png" alt="">
+<p class="font-light text-center mb-4">Prosimy o wprowadzenie danych osobowych oraz miejsca zlecenia usługi.</p>
+
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Imię</label>
-    <input type="text" class="form-control" id="inputEmail4">
+    <input value="<?php echo $json[0]["fname"]?>" type="text" class="form-control" id="inputEmail4">
   </div>
   <div class="col-md-6">
     <label for="inputPassword4" class="form-label">Nazwisko</label>
-    <input type="text" class="form-control" id="inputPassword4">
+    <input value="<?php echo $json[0]["lname"]?>" type="text" class="form-control" id="inputPassword4">
   </div>
   <div class="col-12">
     <label for="inputAddress" class="form-label">Ulica</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input value="<?php echo $json[0]["street"]?>" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="col-12">
     <label for="inputAddress2" class="form-label">Nr domu/mieszkania</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input value="<?php echo $json[0]["local"]?>" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="col-md-6">
     <label for="inputCity" class="form-label">Miasto</label>
-    <input type="text" class="form-control" id="inputCity">
+    <input value="<?php echo $json[0]["city"]?>" type="text" name="city" class="form-control" id="inputCity">
   </div>
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Kod pocztowy</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-  <div class="col-12">
-  <button type="button" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+  <div class="col-12 mt-4">
+  <button type="button" class="prev-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Wstecz
   </button>
-  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Dodaj !
+  <button type="button" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Dalej !
   </button>
   </div>
+</div>
+<div class="pricing-div  ">
+<img class="mx-auto mt-4 h-52" src="../assets/img/price.png" alt="">
+<p class="font-light text-center mb-4">Prosimy o wprowadzenie informacji na temat ceny usługi oraz daty jej realizacji.</p>
+<div class="flex mb-8 w-full  items-center justify-center space-x-8">
+              <div class="w-40" >
+                <p class="text-center">Cena :</p>
+                <div class="input-group">
+                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <span class="input-group-text">zł</span>
+                </div>
+              </div>
+              <div class="w-40">
+                <p class="text-center">Data realizacji usługi : </p>
+                <input class="h-9 border border-green-400" type="date">
+              </div>
+</div>
+<button type="button" class="prev-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Wstecz
+  </button>
+<button type="submit" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Dodaj !
+  </button>
 </form>
 </div>
 </div>
-    <!-- <header>Formularz</header>
-    <div class="form-outer">
-        <form action="#">
-            <div class="page">
-                <div class="title">Basic Info:</div>
-                <div class="field">
-                    <div class="label">First Name</div>
-                    <input type="text">
-                </div>
-                <div class="field">
-                    <div class="label">Last Name</div>
-                    <input type="text">
-                </div>
-                <div class="field">
-                    <button>Next</button>
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="title">Contact Info:</div>
-                <div class="field">
-                    <div class="label">Email Address</div>
-                    <input type="text">
-                </div>
-                <div class="field">
-                    <div class="label">Phone Number</div>
-                    <input type="text">
-                </div>
-                <div class="field btns">
-                    <button class="prev-1 prev">Previous</button>
-                    <button class="next-1 pnext">Next</button>
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="title">Date of Birth:</div>
-                <div class="field">
-                    <div class="label">Date</div>
-                    <input type="text">
-                </div>
-                <div class="field">
-                    <div class="label">Gender</div>
-                    <select>
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-                <div class="field btns">
-                    <button class="prev-2 prev">Previous</button>
-                    <button class="next-2 next">Next</button>
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="title">Login Details:</div>
-                <div class="field">
-                    <div class="label">Username</div>
-                    <input type="text">
-                </div>
-                <div class="field">
-                    <div class="label">Password</div>
-                    <input type="password">
-                </div>
-                <div class="field btns">
-                    <button class="prev-3 prev">Previous</button>
-                    <button class="submit">Submit</button>
-                </div>
-            </div>
-        </form> -->
-    </div>
-
-    </div>
+</div>
+</div>
+<script src="../scripts/addOgloszenie.js"></script>

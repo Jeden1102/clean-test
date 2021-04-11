@@ -67,7 +67,23 @@ include '../components/header.php';
     </div>
      <!-- Dodawanie ogłoszenia -->
      <div class="tab-pane fade mx-2 mt-8" id="v-pills-ogloszenia" role="tabpanel" aria-labelledby="v-pills-profile-ogloszenia">
-    
+     <div class="w-full  lg:w-full h-20  flex justify-center items-center relative">
+       
+       <div class="ogl-info cursor-pointer w-32 lg:w-72 absolute left-0 lg:left-0 top-0 h-full flex items-center bg-green-400 shadow-md step-one-visual text-white justify-center lg:justify-start">
+         <i class="text-2xl fas fa-info-circle mr-2"></i>
+         <p class="hidden lg:block">
+         Informacje o ogłoszeniu
+         </p> 
+        </div>
+       <div class="ogl-dane cursor-pointer w-32 lg:w-72 absolute left-20 lg:left-48 top-0  h-full flex items-center justify-center bg-green-200  step-two-visual text-white">
+         <i class="text-2xl fas fa-user mr-2"></i>
+         <p class="hidden lg:block">Dane osobowe</p>
+        </div>
+       <div class="ogl-cena cursor-pointer w-32 lg:w-72 absolute left-40 lg:left-96  h-full flex items-center justify-center shadow bg-green-200  step-three-visual text-white">
+         <i class="text-2xl fas fa-tags mr-2"></i>
+         <p class="hidden lg:block">Cena i data</p> 
+        </div>
+     </div>
       <?php
       include '../components/dodaj-ogl.php';
       ?>
