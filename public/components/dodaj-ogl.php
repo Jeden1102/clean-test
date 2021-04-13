@@ -23,7 +23,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </label>
                 <div class="mt-1 flex rounded-md shadow-sm">
           
-                  <input type="text" name="company_website" id="company_website" class="h-8 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Zlecę posprzątanie apartamentu">
+                  <input type="text" name="order_title" id="company_website" class="h-8 pl-2 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Zlecę posprzątanie apartamentu">
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 Opis
               </label>
               <div class="mt-1">
-                <textarea id="about" name="about" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
+                <textarea id="about" name="order_description" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
               </div>
              
             </div>
@@ -65,7 +65,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="comments" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="comments" name="home_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="comments" class="font-medium text-gray-700">Sprzątanie domu/mieszkania</label>
@@ -74,7 +74,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="candidates" name="candidates" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="candidates" name="car_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="candidates" class="font-medium text-gray-700">Sprzątanie samochodu</label>
@@ -83,7 +83,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="offers" name="offers" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="offers" name="window_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="offers" class="font-medium text-gray-700">Mycie okien</label>
@@ -114,19 +114,19 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Imię</label>
-    <input value="<?php echo $json[0]["fname"]?>" type="text" class="form-control" id="inputEmail4">
+    <input value="<?php echo $json[0]["fname"]?>" name="fname" type="text" class="form-control" id="inputEmail4">
   </div>
   <div class="col-md-6">
     <label for="inputPassword4" class="form-label">Nazwisko</label>
-    <input value="<?php echo $json[0]["lname"]?>" type="text" class="form-control" id="inputPassword4">
+    <input value="<?php echo $json[0]["lname"]?>" type="text" name="lname" class="form-control" id="inputPassword4">
   </div>
   <div class="col-12">
     <label for="inputAddress" class="form-label">Ulica</label>
-    <input value="<?php echo $json[0]["street"]?>" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input value="<?php echo $json[0]["street"]?>" type="text" name="street"  class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="col-12">
     <label for="inputAddress2" class="form-label">Nr domu/mieszkania</label>
-    <input value="<?php echo $json[0]["local"]?>" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input value="<?php echo $json[0]["local"]?>" type="text" name="number"  class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="col-md-6">
     <label for="inputCity" class="form-label">Miasto</label>
@@ -148,19 +148,19 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="w-40" >
                 <p class="text-center">Cena :</p>
                 <div class="input-group">
-                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input type="text" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)">
                   <span class="input-group-text">zł</span>
                 </div>
               </div>
               <div class="w-40">
                 <p class="text-center">Data realizacji usługi : </p>
-                <input class="h-9 border border-green-400" type="date">
+                <input class="h-9 border border-green-400" type="date" name="order_date">
               </div>
 </div>
 <button type="button" class="prev-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Wstecz
   </button>
-<button type="submit" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+<button type="submit" name="send" value="1" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Dodaj !
   </button>
 </form>

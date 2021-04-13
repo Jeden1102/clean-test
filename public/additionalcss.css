@@ -41,3 +41,10 @@
 .step-three-visual{
     clip-path: polygon(0 19%, 59% 19%, 77% 52%, 61% 85%, 0 86%, 23% 51%);
 }
+.filter-box{
+    transform: translateX(-100%);
+    transition: .3s;
+}
+.filter-translate{
+    transform: translateX(0%);
+}

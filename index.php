@@ -31,8 +31,8 @@ session_start();
         <div class="hidden md:block sm:ml-6 my-auto">
           <div class="flex space-x-4 items-center">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
-            <a href="#" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
+            <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
+            <a href="./public/views/ogloszenia.php" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
             <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>
@@ -166,13 +166,13 @@ session_start();
   </div>
 </div>
 
-<div class="min-h-0 w-full justify-center items-center" style="color:#f2f2f2;">
+<div class="min-h-0 w-full" style="color:#f2f2f2;">
   <div class="h-3/4 w-full flex border-b border-black bg-purple-800">
   <div class="flex-1 pl-2">
   <div class="text-xl font-bold">About Us</div>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita atque asperiores ipsam quia, sequi, itaque quo quidem deleniti mollitia facere laborum? Expedita id et inventore aperiam repellat, debitis beatae velit minima! Numquam aliquid ex fugit repudiandae ad, expedita porro voluptas quam qui, reprehenderit consectetur quia repellendus veniam cupiditate dicta?</p>
   </div>
-    <div class="flex-1 mx-3">
+    <div class="flex-1 mx-3 pl-48">
       <ul class="list-none text-xl font-bold">Links
         <li class="font-normal pt-4"><a href="#" class="hover:text-gray-400">lorem</a></li>
         <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
@@ -184,9 +184,9 @@ session_start();
     </div>
     <div class="flex-1 h-full">
       <div class="font-bold text-xl">Contact Us</div>
-      <input type="text" class="border-1 flex" />
-      <button class="border-1 bg-green-400 my-2 p-2">Prześlij</button>
-      <textarea class="border-1 flex"></textarea>
+      <textarea class="border-1 flex my-4 bg-green-400 border-green-500 w-1/2 outline-none"></textarea>
+      <input type="text" class="border-1 border-green-500 bg-green-400 flex w-1/2 outline-none" />
+      <button class="border-1 bg-green-400 my-2 p-2 rounded-md border-green-500">Prześlij</button>
     </div>
   </div>
   <div class="h-1/4 w-full flex justify-center bg-purple-900"><i class="far fa-copyright mr-1.5 mt-1"></i> 2020 Copyright: MDBootstrap.com</div>
