@@ -48,3 +48,6 @@
 .filter-translate{
     transform: translateX(0%);
 }
+.checked-item{
+    border:3px solid black;
+}
