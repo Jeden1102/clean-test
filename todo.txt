@@ -1,5 +1,2 @@
-reset hasła z maila dopiero jak konto aktywne <- chyba ok ?
-walidacja na zmianie hasła z poziomu strony <- ok ?
-edytuj profil na mobile troche shit wyglada
-edytuj profil alerty że ustawienia konta zmienione etc <- ok?
-edytuj profilm -> walidcaj na hasło + alerty ze haslo zmienionie etc <- ok ?
+szmitu -> popraw wygladów filtów szczególnie na desktopie, dodaj ikony svg do tych divów w rodzaju usługi
+w ordersach -> baza pobiera się mała info, nie ma info o danychj osobowych, tytule ogloszenia etc

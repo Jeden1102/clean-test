@@ -53,62 +53,58 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php
 include '../components/header.php';
 ?>
-<div class="w-full">
-    <button class="w-11/12 mx-auto bg-gray-50 text-white mt-4 rounded shadow p-2  flex items-center justify-end filter-btn">
-        <img class="w-12" src="../assets/img/filter.png" alt="">
+    <div class="lg:flex">
+    <!-- FILTRY -->
+    <div class="w-full lg:w-1/3">
+      <button class="w-11/12 mx-auto bg-gray-50 text-white mt-4 rounded shadow p-2  flex items-center justify-end filter-btn">
+          <img class="w-12" src="../assets/img/filter.png" alt="">
 
-    </button>
-    <div class="w-full mx-auto h-screen bg-white card shadow filter-box mx-auto absolute left-0 top-44">
-        <div class="w-4/5 mx-auto">
-            <h2 class="my-4 text-2xl font-light text-center">Filtruj swoje wyszukiwania</h2>
-            <div>
-                <label for="exampleInputEmail1" class="form-label">Lokalizcja</label>
-                <input name="lokalizacja" type="text" class="form-control" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
-            </div>
-        <p class="w-4/5 mx-auto mt-4 mb-2">
-        <label for="amount">Zakres cen:</label>
-        <input type="text" id="amount" readonly class="text-green-400 font-bold " >
-        </p>
- 
-        <div id="slider-range"></div>
+      </button>
+      <div class="w-full lg:w-1/5 mx-auto h-screen bg-white card shadow filter-box mx-auto absolute left-0 top-44">
+          <div class="w-4/5 mx-auto">
+              <h2 class="my-4 text-2xl font-light text-center">Filtruj swoje wyszukiwania</h2>
+              <div>
+                  <label for="exampleInputEmail1" class="form-label">Lokalizcja</label>
+                  <input name="lokalizacja" type="text" class="form-control" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
+              </div>
+          <p class="w-4/5 mx-auto mt-4 mb-2">
+          <label for="amount">Zakres cen:</label>
+          <input type="text" id="amount" readonly class="text-green-400 font-bold " >
+          </p>
+  
+          <div id="slider-range"></div>
 
-        <div class="mt-4">
-        <p>Wybierz rodzaj usługi (możesz wybrać więcej opcji na raz)</p>
-        <div class="flex flex-wrap justify-between">
-            <div>
-            <label class="bg-red-400 item-check w-24 h-24" for="ch1">xxx</label>
-            <input id="ch1" type="checkbox" hidden>
-            </div>
-            <div>
-            <label class="bg-red-400 item-check w-24 h-24" for="ch2">xxx</label>
-            <input id="ch2" type="checkbox" hidden >
-            </div>
-            <div>
-            <label class="bg-red-400 item-check w-24 h-24" for="ch3">xxx</label>
-            <input id="ch3" type="checkbox" hidden>
-            </div>
-            
-        </div>
-        </div>
+          <div class="mt-4">
+          <p>Wybierz rodzaj usługi (możesz wybrać więcej opcji na raz)</p>
+          <div class="flex flex-wrap justify-between">
+              <div>
+              <label class="bg-red-400 item-check w-24 h-24" for="ch1">xxx</label>
+              <input id="ch1" type="checkbox" hidden>
+              </div>
+              <div>
+              <label class="bg-red-400 item-check w-24 h-24" for="ch2">xxx</label>
+              <input id="ch2" type="checkbox" hidden >
+              </div>
+              <div>
+              <label class="bg-red-400 item-check w-24 h-24" for="ch3">xxx</label>
+              <input id="ch3" type="checkbox" hidden>
+              </div>
+              
+          </div>
+          </div>
 
+      </div>
     </div>
-</div>
+    </div>
     <!-- Content -->
-    <div class="w-full shadow mt-4 py-4">
-        <div class="shadow w-11/12 mx-auto my-2">
-        <?php
-            print_r($json);
-        ?>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aut inventore distinctio consectetur unde ea eum possimus dicta totam reprehenderit!
-        </div>
-        <div class="shadow w-11/12 mx-auto my-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aut inventore distinctio consectetur unde ea eum possimus dicta totam reprehenderit!
-        </div>
-        <div class="shadow w-11/12 mx-auto my-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aut inventore distinctio consectetur unde ea eum possimus dicta totam reprehenderit!
-        </div>
+
+    <div class="w-full shadow mt-4 py-4 orders">
+      
+       
     </div>
-</div>
+    </div>
+   
+ 
 <?php
         include '../components/mobile-nav.php';
 ?>
@@ -118,3 +114,7 @@ include '../components/header.php';
 
 </script>
 <script src="../scripts/checkboxes.js"></script>
+<script src="../scripts/getApiData.js">
+
+
+</script>
