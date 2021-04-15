@@ -1,5 +1,12 @@
 <?php
 session_start();
+require './back/conn.php';
+
+$sql = "SELECT * from orders";
+$result = $conn->query($sql);
+
+$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +21,8 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <link href="./public/styles.css" rel="stylesheet"/>
     <link href="./public/additionalcss.css" rel="stylesheet"/>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 </head>
 
 <body >
@@ -82,12 +90,55 @@ session_start();
 <div class="alert alert-warning hidden w-full " role="alert">
         Twoje konto zostało usunięte !
 </div>
-    <img src="./public/assets/img/build-page.png" class="relative mt-8 w-1/4" alt="">
+<p class="text-2xl mb-2 font-bold">Witaj na stronie Click & Clean</p>
+<div class="flex w-full h-96 text-2xl">
+    <!-- <img src="./public/assets/img/sp2.jpg" alt="" class="w-full h-96 absolute" /> -->
+    <div class="flex-1 flex items-center justify-center z-10">
+        <button class="border-1 border-green-500 rounded-md bg-green-400 hover:bg-green-500 p-2 shadow">Dodaj ogłoszenie</button>
+    </div>
+    <div class="flex-1 flex items-center justify-center z-10">
+      <button class="border-1 border-green-500 rounded-md bg-green-400 hover:bg-green-500 p-2 shadow">Szukaj wykonawcy</button>
+    </div>
+    <img src="./public/assets/img/hello.jpg" alt="" class="w-full h-96 absolute" />
+</div>
+    <!-- <img src="./public/assets/img/build-page.png" class="relative mt-8 w-1/4" alt="">
         <h2 class="text-center text-3xl">Strona w budowie</h2>
-        <p class="text-center mt-8">Wesołych i czystych świąt życzy spółka Click&Clean Polska.</p>
+        <p class="text-center mt-8">Wesołych i czystych świąt życzy spółka Click&Clean Polska.</p> -->
       
 </div>
-<div class="py-12 bg-white">
+<!-- carousel -->
+<h2 class="text-center mt-6 text-2xl">Sprawdź ostatnie ogłoszenia !</h2>
+<div class="bg-red-200 mt-4 h-72 w-full md:w-11/12 mx-auto">
+<div class="splide" id="splide">
+	<div class="splide__track  mt-4">
+		<ul class="splide__list  h-72 mt-4">
+
+      <?php
+        foreach ($json as $value) {
+          
+          echo '
+			  <li class="splide__slide  h-full card">
+
+          <img class="w-full h-5/6"  src="./public/assets/img/sp1.jpg" alt="">
+          <div class="flex items-center h-1/6">
+            <h2 class="ml-2">Zlecę mycie podłogi</h2>
+            <p class="ml-2 font-bold">    ' .  $value['order_price'] . 'zł</p>
+            <button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Sprawdź
+        </button>
+          </div>
+        </li>
+
+          
+          ';
+        }
+      ?>
+
+		</ul>
+	</div>
+</div>
+</div>
+<div class="py-12 bg-white mt-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -102,7 +153,7 @@ session_start();
       <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-400 text-white">
               <!-- Heroicon name: outline/globe-alt -->
               <i class="fas fa-funnel-dollar"></i>
             </div>
@@ -116,7 +167,7 @@ session_start();
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-400 text-white">
               <!-- Heroicon name: outline/scale -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -132,7 +183,7 @@ session_start();
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-400 text-white">
               <!-- Heroicon name: outline/lightning-bolt -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -148,7 +199,7 @@ session_start();
 
         <div class="relative">
           <dt>
-            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-400 text-white">
               <!-- Heroicon name: outline/annotation -->
               <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
@@ -168,27 +219,35 @@ session_start();
 
 <div class="min-h-0 w-full" style="color:#f2f2f2;">
   <div class="h-3/4 w-full flex border-b border-black bg-purple-800">
-  <div class="flex-1 pl-2">
+  <div class="flex-1">
   <div class="text-xl font-bold">About Us</div>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita atque asperiores ipsam quia, sequi, itaque quo quidem deleniti mollitia facere laborum? Expedita id et inventore aperiam repellat, debitis beatae velit minima! Numquam aliquid ex fugit repudiandae ad, expedita porro voluptas quam qui, reprehenderit consectetur quia repellendus veniam cupiditate dicta?</p>
   </div>
-    <div class="flex-1 mx-3 pl-48">
+    <div class="flex-1 justify-center flex">
       <ul class="list-none text-xl font-bold">Links
-        <li class="font-normal pt-4"><a href="#" class="hover:text-gray-400">lorem</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">lorem</a></li>
+        <li class="font-normal pt-4"><a href="#" class="hover:text-gray-400">Link</a></li>
+        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
+        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
+        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
+        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
+        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
       </ul>
     </div>
-    <div class="flex-1 h-full">
-      <div class="font-bold text-xl">Contact Us</div>
-      <textarea class="border-1 flex my-4 bg-green-400 border-green-500 w-1/2 outline-none"></textarea>
-      <input type="text" class="border-1 border-green-500 bg-green-400 flex w-1/2 outline-none" />
-      <button class="border-1 bg-green-400 my-2 p-2 rounded-md border-green-500">Prześlij</button>
+    <div class="flex-1 justify-center h-full">
+      <div class="font-bold text-xl flex justify-center">Contact Us</div>
+        <div class="mt-4">
+          <div class="flex justify-center">
+            <textarea class="border-1 flex my-4 border-purple-600 w-1/2 outline-none rounded-md"></textarea>
+          </div>
+          <div class="flex justify-center">
+            <input type="text" class="border-1 border-purple-600 flex w-1/2 outline-none rounded-md" />
+          </div>
+          <div class="flex justify-center">
+            <button class="border-1 bg-purple-500 my-2 p-2 rounded-md border-purple-600 hover:bg-purple-600">Prześlij</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
   <div class="h-1/4 w-full flex justify-center bg-purple-900"><i class="far fa-copyright mr-1.5 mt-1"></i> 2020 Copyright: MDBootstrap.com</div>
 </div>
    
@@ -227,3 +286,22 @@ if(isset($_GET["accDeleted"])){
 }
 
 ?>
+<script>
+  document.addEventListener( 'DOMContentLoaded', function () {
+	new Splide( '#splide', {
+		perPage    : 4,
+    perMove: 1,
+		breakpoints: {
+			1200: {
+				perPage: 3,
+            },
+            1024: {
+                perPage:2,
+            },
+            840:{
+                perPage:1,
+            }
+		}
+	} ).mount();
+} );
+</script>

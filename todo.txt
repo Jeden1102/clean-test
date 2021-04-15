@@ -1,2 +1,6 @@
 szmitu -> popraw wygladów filtów szczególnie na desktopie, dodaj ikony svg do tych divów w rodzaju usługi
 w ordersach -> baza pobiera się mała info, nie ma info o danychj osobowych, tytule ogloszenia etc
+w momencei tworzenia ordera do tabeli orders dodajemy kolumnę z datą utworzeia 
+
+1. ogarnąc nawigację etc pod ogłoszenia
+2. strona pojedynczego ogłoszenia

@@ -51,3 +51,6 @@
 .checked-item{
     border:3px solid black;
 }
+.splide__pagination{
+    display:none !important;
+}
