@@ -20,8 +20,8 @@
         <div class="hidden md:block sm:ml-6 my-auto">
           <div class="flex space-x-4 items-center">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
-            <a href="#" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
+            <a href="../../index.php" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
+            <a href="../views/ogloszenia.php" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
             <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>

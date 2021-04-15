@@ -3,7 +3,7 @@
      
         <div class="flex h-full bg-green-400 ">
             <a href="../../index.php" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-home text-3xl text-white hover:text-gray-100"></i></a>
-            <a href="" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-bullhorn text-3xl text-white hover:text-gray-100"></i></a>
+            <a href="./ogloszenia.php" class="w-1/4 h-full   flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-bullhorn text-3xl text-white hover:text-gray-100"></i></a>
             <a href="" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-users text-3xl text-white hover:text-gray-100"></i></a>
             <?php
             if(isset($_SESSION['email'])){
@@ -19,6 +19,6 @@
             }
             ?>
         
-            </a>
+            
         </div>
     </nav>

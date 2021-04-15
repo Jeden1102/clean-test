@@ -2,7 +2,7 @@
 session_start();
 require './back/conn.php';
 
-$sql = "SELECT * from orders";
+$sql = "SELECT * from orders order by order_id desc";
 $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -65,7 +65,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         <!--MENU ON MD + TO GIT-->
         
-        <div class="hidden drop-profile origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+        <div class="hidden z-20 drop-profile origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
           <a href="./public/views/profile-settings.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Twój profil</a>
           <a href="./public/views/ogloszenia-uzyt.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Twoje ogłoszenia i zgłoszenia</a>
           <a href="./back/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Wyloguj się</a>
@@ -90,24 +90,12 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <div class="alert alert-warning hidden w-full " role="alert">
         Twoje konto zostało usunięte !
 </div>
-<p class="text-2xl mb-2 font-bold">Witaj na stronie Click & Clean</p>
-<div class="flex w-full h-96 text-2xl">
-    <!-- <img src="./public/assets/img/sp2.jpg" alt="" class="w-full h-96 absolute" /> -->
-    <div class="flex-1 flex items-center justify-center z-10">
-        <button class="border-1 border-green-500 rounded-md bg-green-400 hover:bg-green-500 p-2 shadow">Dodaj ogłoszenie</button>
+
+<div class="w-full h-screen">
+    <div class="h-3/5" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
     </div>
-    <div class="flex-1 flex items-center justify-center z-10">
-      <button class="border-1 border-green-500 rounded-md bg-green-400 hover:bg-green-500 p-2 shadow">Szukaj wykonawcy</button>
-    </div>
-    <img src="./public/assets/img/hello.jpg" alt="" class="w-full h-96 absolute" />
-</div>
-    <!-- <img src="./public/assets/img/build-page.png" class="relative mt-8 w-1/4" alt="">
-        <h2 class="text-center text-3xl">Strona w budowie</h2>
-        <p class="text-center mt-8">Wesołych i czystych świąt życzy spółka Click&Clean Polska.</p> -->
-      
-</div>
-<!-- carousel -->
-<h2 class="text-center mt-6 text-2xl">Sprawdź ostatnie ogłoszenia !</h2>
+    <div class="h-2/5">
+    <h2 class="text-center mt-6 text-2xl">Sprawdź najnowsze ogłoszenia !</h2>
 <div class="bg-red-200 mt-4 h-72 w-full md:w-11/12 mx-auto">
 <div class="splide" id="splide">
 	<div class="splide__track  mt-4">
@@ -138,6 +126,13 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	</div>
 </div>
 </div>
+    </div>
+
+</div>
+      
+</div>
+<!-- carousel -->
+
 <div class="py-12 bg-white mt-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
@@ -255,7 +250,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
         
         <div class="flex h-full bg-green-400 ">
             <a href="index.php" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-home text-2xl text-white hover:text-gray-100"></i></a>
-            <a href="" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-bullhorn text-2xl text-white hover:text-gray-100"></i></a>
+            <a href="./public/views/ogloszenia.php" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-bullhorn text-2xl text-white hover:text-gray-100"></i></a>
             <a href="" class="w-1/4 h-full  flex justify-center items-center border-r-2 hover:bg-green-500 border-green-500"><i class="fas fa-users text-2xl text-white hover:text-gray-100"></i></a>
             <?php
             if(isset($_SESSION['email'])){
