@@ -41,6 +41,9 @@ include '../components/header.php';
     <button class="nav-link" id="v-pills-profile-ogloszenia" data-bs-toggle="pill" data-bs-target="#v-pills-ogloszenia" type="button" role="tab" aria-controls="v-pills-ogloszenia" aria-selected="false"><i class="fas fa-plus-circle mr-4"></i>Dodaj ogłoszenie</button>
   </div>
   <div class="tab-content sm:w-8/12 sm:mt-0" id="v-pills-tabContent">
+  <div class="alert alert-success hidden" role="alert">
+        Ogłoszenie  zostało dodane !
+    </div>
     <!-- Edycja profilu -->
     <div class="tab-pane fade show active w-full mt-8 sm:mt-0 mx-auto" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
     <div class="w-full mx-auto  md:col-span-2">
@@ -58,8 +61,9 @@ include '../components/header.php';
     </div>
     </div>
     <!-- Zgłoszenia -->
-    <div class="tab-pane fade mx-2 mt-8" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
     
+    <div class="tab-pane fade mx-2 mt-8" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
     <div class="card p-4 shadow">
     <h2 class="p-4 text-3xl text-center font-light">Twoje zgłoszenia</h2>
     </div>
@@ -107,6 +111,15 @@ if(isset($_GET["badPwd"])){
   showAlert(alertWarning,5000);
   </script>";
 }
+if(isset($_GET["dodano"])){
+  ?>
+  <?php
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertSuccess,5000);
+  
+  </script>";
+}
 ?>
 </body>
 </html>
@@ -124,3 +137,4 @@ if(isset($_GET["badPwd"])){
 
  
 </script>
+              

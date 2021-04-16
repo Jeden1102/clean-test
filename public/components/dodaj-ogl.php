@@ -148,12 +148,13 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="w-40" >
                 <p class="text-center">Cena :</p>
                 <div class="input-group">
-                  <input type="text" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input minlength="1" type="text" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)">
                   <span class="input-group-text">zł</span>
                 </div>
               </div>
               <div class="w-40">
-                <p class="text-center">Data realizacji usługi : </p>
+              
+                <p class="text-center">Data ważności usługi : </p>
                 <input class="h-9 border border-green-400" type="date" name="order_date">
               </div>
 </div>

@@ -92,7 +92,8 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </div>
 
 <div class="w-full h-screen">
-    <div class="h-3/5" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
+    <div class="h-3/5" class="grid place-content-center flex items-center" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
+    <div class="w-full h-2/5 bg-gray-300 opacity-80 absolute mt-24"></div>
     </div>
     <div class="h-2/5">
     <h2 class="text-center mt-6 text-2xl">Sprawdź najnowsze ogłoszenia !</h2>
@@ -109,7 +110,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
           <img class="w-full h-5/6"  src="./public/assets/img/sp1.jpg" alt="">
           <div class="flex items-center h-1/6">
-            <h2 class="ml-2">Zlecę mycie podłogi</h2>
+            <h2 class="ml-2">' .  $value['title'] . '</h2>
             <p class="ml-2 font-bold">    ' .  $value['order_price'] . 'zł</p>
             <button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Sprawdź
@@ -140,7 +141,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
         Dlaczego warto wybrać Click&Clean?
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+      Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!
       </p>
     </div>
 
@@ -156,7 +157,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <!-- darmowe -->
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          Zarówno rejestracja jak i korzystanie z naszego serwisu są całkowicie bezpłatne! Pozwala to m.in. na zamieszczanie ogłoszeń, wyszukiwanie ofert pracy bez wydawania ani złotówki.
           </dd>
         </div>
 
@@ -172,7 +173,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Brak ukrytych kosztów</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Będąc naszym klientem, nie masz się o co martwić, gdyż nie
+          Będąc naszym klientem, nie masz się o co martwić, gdyż nie oferujemy żadnych usług, które posiadałyby ukryte, koszty. Stawiamy na uczciwość oraz zaufanie wobec klientów.
           </dd>
         </div>
 
@@ -188,7 +189,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Działamy na runku od 10 lat</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          Click&Clean to firma doświadczona, działająca na rynku już od dekady. Zadowoliliśmy setki klientów, dzięki nam pracę uzyskało wielu ludzi oraz posiadamy same dobre opinie. Ty też zaufaj firmie Click&Clean!
           </dd>
         </div>
 
@@ -204,7 +205,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Zaufało nam już ponad 1000 klientów, zaufaj i ty</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+          Wraz z upływem lat obsłużyliśmy już ponad 1000 klientów. Liczba ta robi wrażenie oraz sama w sobie pokazuje, iż naszej firmie warto zaufać. Zarówno nasza oferta, jak i strona jest przejrzysta, oferujemy szybki kontakt z nami -  mailowo lub telefonicznie oraz warto zobaczyć opinie na nasz temat.
           </dd>
         </div>
       </dl>
@@ -216,7 +217,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <div class="h-3/4 w-full flex border-b border-black bg-purple-800">
   <div class="flex-1">
   <div class="text-xl font-bold">About Us</div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam expedita atque asperiores ipsam quia, sequi, itaque quo quidem deleniti mollitia facere laborum? Expedita id et inventore aperiam repellat, debitis beatae velit minima! Numquam aliquid ex fugit repudiandae ad, expedita porro voluptas quam qui, reprehenderit consectetur quia repellendus veniam cupiditate dicta?</p>
+  <p>Click&Clean to firma zajmująca się tworzeniem ogłoszeń dla użytkowników, którzy poszukują ofert pracy z zakresu usług sprzątania oraz użytkowników, którzy pragną wynająć profesjonalny sektor usług utrzymania czystości. Gwarantujemy najwyższą jakość usług, posiadamy duże doświadczenie oraz same pozytywne opinie zadowolonych klientów. Zaufało nam już ponad 1000 klientów, zaufaj i ty!</p>
   </div>
     <div class="flex-1 justify-center flex">
       <ul class="list-none text-xl font-bold">Links
@@ -232,10 +233,10 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
       <div class="font-bold text-xl flex justify-center">Contact Us</div>
         <div class="mt-4">
           <div class="flex justify-center">
-            <textarea class="border-1 flex my-4 border-purple-600 w-1/2 outline-none rounded-md"></textarea>
+            <textarea class="border-1 flex my-4 border-purple-600 w-1/2 outline-none rounded-md text-black"></textarea>
           </div>
           <div class="flex justify-center">
-            <input type="text" class="border-1 border-purple-600 flex w-1/2 outline-none rounded-md" />
+            <input type="text" class="border-1 border-purple-600 flex w-1/2 outline-none rounded-md text-black" />
           </div>
           <div class="flex justify-center">
             <button class="border-1 bg-purple-500 my-2 p-2 rounded-md border-purple-600 hover:bg-purple-600">Prześlij</button>

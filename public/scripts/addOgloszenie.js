@@ -4,8 +4,7 @@ let box = document.querySelector(".szeroki");
 let oglInfo = document.querySelector(".ogl-info");
 let oglDane = document.querySelector(".ogl-dane");
 let oglCena = document.querySelector(".ogl-cena");
-console.log(oglDane)
-console.log(oglCena)
+
 let step = 0;
 
 nextBtn.forEach(element => {
@@ -67,3 +66,7 @@ function checkStep(){
         oglInfo.classList.remove('bg-green-400');
     }
 }
+//validacja
+
+let title = document.querySelector('input[name="order_title]"');
+console.log(title)
