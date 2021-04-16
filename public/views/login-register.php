@@ -27,6 +27,9 @@ include '../components/header.php';
     <div class="alert alert-success hidden" role="alert">
         Aby zakończyc utworzenie konta potwierdź swój adres email - wiadomość została wysłana !
     </div>
+    <div class="alert alert-success not-email hidden" role="alert">
+        Do tego adresu e-mail nie przypisano żadnego konta
+    </div>
     <div class="alert alert-warning hidden" role="alert">
         Do tego adresu e-mail nie jest przypisane żadne konto !
     </div>
@@ -98,7 +101,7 @@ include '../components/header.php';
 
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
-        showAlert(alertDanger,5000);
+        showAlert(alertDanger,7000);
         </script>";
     }
     if(isset($_GET["register"])){
@@ -108,7 +111,7 @@ include '../components/header.php';
         echo "<script>".$script."</script>";
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
-        showAlert(alertSuccess,5000);
+        showAlert(alertSuccess,7000);
         
         </script>";
     }
@@ -117,7 +120,7 @@ include '../components/header.php';
         <?php
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
-        showAlert(alertWarning,5000);
+        showAlert(alertWarning,7000);
         
         </script>";
     }
@@ -126,7 +129,7 @@ include '../components/header.php';
         <?php
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
-        showAlert(alertPrimary,5000);
+        showAlert(alertPrimary,7000);
         
         </script>";
     }
@@ -135,11 +138,19 @@ include '../components/header.php';
         <?php
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
-        showAlert(alertForgotPwd,5000);
+        showAlert(alertForgotPwd,7000);
         
         </script>";
     }
+    if(isset($_GET["notemail"])){
+        ?>
+        <?php
+        $script = file_get_contents('../scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(noemail,7000);
         
+        </script>";
+    }    
 ?>
 
 </html>

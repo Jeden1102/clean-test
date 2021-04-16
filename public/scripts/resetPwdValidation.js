@@ -16,7 +16,7 @@ pwdFirst.addEventListener('keyup',()=>{
         pwdFirst.classList.remove('bg-red-100');
         pwdValidated = true;
     }else{
-        pwdFirstError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny)";
+        pwdFirstError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny - !@#$%^&*)";
         pwdFirst.classList.add('bg-red-100');
         pwdValidated = false;
     }
@@ -29,7 +29,7 @@ pwdSecond.addEventListener('keyup',()=>{
         pwdSecond.classList.remove('bg-red-100');
         pwdRepeatValidated = true;
     }else{
-        pwdRepeatError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny)";
+        pwdRepeatError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny - !@#$%^&*)";
         pwdSecond.classList.add('bg-red-100');
         pwdRepeatValidated = false;
     }

@@ -52,7 +52,7 @@ pwdInput.addEventListener("keyup",()=>{
         pwdInput.classList.remove('bg-red-100');
         pwdValidated = true;
     }else{
-        pwdError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny)";
+        pwdError.innerHTML = "Wprowadzone hasło nie spełnia wymagań złożoności(8 znaków, wielka oraz mała litera oraz znak specjalny - !@#$%^&*)";
         pwdInput.classList.add('bg-red-100');
         pwdValidated = false;
     }

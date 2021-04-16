@@ -1,9 +1,8 @@
-filtry -> checkoxy wystylizować, dać ikonkę (svg) i pod nim napis np. mycie okien
-profil -> widok z podziałem na ogłoszenia aktywne, zakończone zbanowane
 
 
-+++semantyka, zapytamy Zminkowskiego, jęlsi tak to nav,heaer,footer,secttion etc
 
 
-dłuższy timing
-validacja (())
+
+
+
+

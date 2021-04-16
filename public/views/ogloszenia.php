@@ -110,31 +110,30 @@ include '../components/header.php';
               <form action="../../back/ogl-filtr.php" method="POST">
               <div>
                   <label for="exampleInputEmail1" class="form-label">Lokalizcja</label>
-                  <input name="lokalizacja" type="text" class="form-control" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
+                  <input name="lokalizacja" value="<?php if(isset($_GET['city'])){if($_GET['city'] != '0' ){echo $_GET['city'];}}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
               </div>
           <p class="w-4/5 mx-auto mt-4 mb-2">
           <label for="amount">Zakres cen:</label>
-          <input name="min" type="text" class="form-control" id="exampleInputEmail1" placeholder="min" aria-describedby="emailHelp">
+          <input name="min" value="<?php if(isset($_GET['minPrice'])){echo $_GET['minPrice'];}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="min" aria-describedby="emailHelp">
 
-          <input name="max" type="text" class="form-control" id="exampleInputEmail1" placeholder="max" aria-describedby="emailHelp">
+          <input name="max" value="<?php if(isset($_GET['minPrice'])){echo $_GET['order_price'];}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="max" aria-describedby="emailHelp">
 
           <!-- <input type="text" id="amount" readonly class="text-green-400 font-bold " > -->
           </p>
   
           <!-- <div id="slider-range"></div> -->
-
           <div class="mt-4">
           <p>Wybierz rodzaj usługi (możesz wybrać więcej opcji na raz)</p>
           <div class="flex flex-wrap">
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer  flex items-center justify-center flex-column" for="ch1">
+              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer  flex items-center justify-center flex-column " for="ch1">
               <i class="fas fa-car text-5xl"></i>
                 <p class="mt-2">Sprzątanie samochodu</p>
               </label>
               <input name="car_clean" id="ch1" type="checkbox" hidden>
               </div>
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column" for="ch2">
+              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column " for="ch2">
               <i class="fas fa-th-large text-5xl "></i>
               
               <p>Mycie okień</p>
@@ -142,7 +141,7 @@ include '../components/header.php';
               <input name="window_clean" id="ch2" type="checkbox" hidden >
               </div>
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column" for="ch3">
+              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column " for="ch3">
               <img src="../assets/img/window-cleaner_4.png" alt="" class="w-16 h-16" />
               <p class="mt-2">Malowanie</p>
               </label>

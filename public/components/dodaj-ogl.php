@@ -33,7 +33,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 Opis
               </label>
               <div class="mt-1">
-                <textarea id="about" name="order_description" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
+                <textarea id="about" name="order_description" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Opisz zlecenie"></textarea>
               </div>
              
             </div>
@@ -61,7 +61,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </div>
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
             <fieldset>
-              <legend class="text-base font-medium text-gray-900">Rodzaj usługi:</legend>
+              <legend class="text-base font-medium text-gray-900">Rodzaj usługi - musisz wybrać co najmniej jeden:</legend>
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
@@ -148,22 +148,24 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="w-40" >
                 <p class="text-center">Cena :</p>
                 <div class="input-group">
-                  <input minlength="1" type="text" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)">
+                  <input minlength="1" type="number" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
                   <span class="input-group-text">zł</span>
                 </div>
               </div>
               <div class="w-40">
               
                 <p class="text-center">Data ważności usługi : </p>
-                <input class="h-9 border border-green-400" type="date" name="order_date">
+                <input class="h-9 border border-green-400" type="date" name="order_date" id="inputDate">
               </div>
 </div>
 <button type="button" class="prev-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Wstecz
   </button>
-<button type="submit" name="send" value="1" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+<!-- <button type="submit"  name="send" value="1" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-red-100">
               Dodaj !
-  </button>
+  </button> -->
+  <button id="send-Btn" name="send" value="1" type="submit" class="btn bg-green-400 text-white sign-btn">Dodaj</button>
+  <p id="err-info"></p>
 </form>
 </div>
 </div>

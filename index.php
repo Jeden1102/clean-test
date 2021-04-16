@@ -2,7 +2,7 @@
 session_start();
 require './back/conn.php';
 
-$sql = "SELECT * from orders order by order_id desc";
+$sql = "SELECT * from orders order by order_id desc LIMIT 7";
 $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -93,11 +93,18 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <div class="w-full h-screen">
     <div class="h-3/5" class="grid place-content-center flex items-center" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
-    <div class="w-full h-2/5 bg-gray-300 opacity-80 absolute mt-24"></div>
+      <div class="w-full h-2/5 bg-gray-300 opacity-80 absolute mt-24">
+        <p class="text-center opacity-100 font-bold text-2xl">Witamy na stronie Click&Clean</p>
+        <p class="text-center opacity-100 font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores.<p>
+        <div class="flex w-full h-4/5 items-end justify-center mb-0">
+        <button class="text-xl font-bold border-1 rounded-md p-2 flex-1 mx-12 border-green-500 bg-green-400 hover:bg-green-500 opacity-100 shadow-md">Dodaj ogłoszenie</button>
+        <button class="text-xl font-bold border-1 rounded-md p-2 flex-1 mx-12 border-green-500 bg-green-400 hover:bg-green-500 opacity-100 shadow-md">Znajdź wykonawców</button>
+        </div>
+      </div>
     </div>
     <div class="h-2/5">
     <h2 class="text-center mt-6 text-2xl">Sprawdź najnowsze ogłoszenia !</h2>
-<div class="bg-red-200 mt-4 h-72 w-full md:w-11/12 mx-auto">
+<div class=" mt-4 h-72 w-full md:w-11/12 mx-auto">
 <div class="splide" id="splide">
 	<div class="splide__track  mt-4">
 		<ul class="splide__list  h-72 mt-4">
@@ -173,7 +180,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Brak ukrytych kosztów</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
-          Będąc naszym klientem, nie masz się o co martwić, gdyż nie oferujemy żadnych usług, które posiadałyby ukryte, koszty. Stawiamy na uczciwość oraz zaufanie wobec klientów.
+          Będąc naszym klientem, nie masz się o co martwić, gdyż nie oferujemy żadnych usług, które posiadałyby ukryte koszty. Stawiamy na uczciwość oraz zaufanie wobec klientów.
           </dd>
         </div>
 
@@ -186,7 +193,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               </svg>
             </div>
             <!-- działamy na rynku x lat -->
-            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Działamy na runku od 10 lat</p>
+            <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Działamy na rynku od 10 lat</p>
           </dt>
           <dd class="mt-2 ml-16 text-base text-gray-500">
           Click&Clean to firma doświadczona, działająca na rynku już od dekady. Zadowoliliśmy setki klientów, dzięki nam pracę uzyskało wielu ludzi oraz posiadamy same dobre opinie. Ty też zaufaj firmie Click&Clean!
@@ -213,7 +220,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </div>
 </div>
 
-<div class="min-h-0 w-full" style="color:#f2f2f2;">
+<div class="min-h-0 mb-12 md:mb-0 w-full" style="color:#f2f2f2;">
   <div class="h-3/4 w-full flex border-b border-black bg-purple-800">
   <div class="flex-1">
   <div class="text-xl font-bold">About Us</div>

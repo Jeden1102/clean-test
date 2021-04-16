@@ -3,7 +3,7 @@ let alertDanger = document.querySelector(".alert-danger");
 let alertWarning = document.querySelector(".alert-warning");
 let alertPrimary = document.querySelector(".alert-primary");
 let alertForgotPwd = document.querySelector(".forgot-pwd");
-
+let noemail = document.querySelector('.not-email');
 
 function showAlert(alert,time){
     alert.classList.remove("hidden");
