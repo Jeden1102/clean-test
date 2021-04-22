@@ -61,21 +61,23 @@ include '../components/header.php';
     <h2 class="p-4 text-3xl text-center font-light">Edytuj profil</h2>
     <div class="card w-11/12 p-4 mx-auto">
     <h2 class="text-center text-2xl">Dane osobowe</h2>
-    <form action="../../back/change_setting.php" method="POST">
+    <form action="../../back/change_setting.php" method="POST"  enctype="multipart/form-data">
             <div class="mx-auto mt-4 w-1/2 flex flex-column items-center justify-center">
               <label class="block text-sm font-medium text-gray-700">
                 Photo
               </label>
               <div class="mt-1 flex items-center">
                 <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                  <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
+
+                  <img class="w-full h-full" src="../../uploads/user_avatars/<?php echo $json[0]['image_url'] ?>" alt="">
                 </span>
                
                 <label for="fileInput" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</label>
               </div>
-              <input id="fileInput" type="file" class="invisible">
+              <div class="after">
+              <input class="" id="fileInput" type="file" name="my_image" >
+
+              </div>
 
             </div>
           <div class="px-4 py-5 bg-white sm:p-6">

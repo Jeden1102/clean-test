@@ -37,10 +37,20 @@
         <div><div class="relative ">
         <?php
         if(isset($_SESSION['email'])){
-        echo ' <div class="relative profile-dropdown">
-        <button type="button" class="mx-4 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-expanded="false" aria-haspopup="true">
-          <span class="sr-only">Open user menu</span>
-          <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          $sql = "SELECT * from user where mail = '$email'";
+          $result = $conn->query($sql);
+
+          $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+          $img  = $json2[0]["image_url"];
+          echo '<div class="relative profile-dropdown ">
+          <button type="button" class="mx-4 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-expanded="false" aria-haspopup="true">
+            <span class="sr-only">Open user menu</span>
+            ';
+            if($json2[0]["image_url"] != ""){
+              echo '<img class="h-8 w-8 rounded-full" src="../../uploads/user_avatars/'.$img.'" alt="">';
+            }else{
+              echo '<img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">';
+            } echo '
         </button>
       </div>
       <!--MENU ON MD + TO GIT-->

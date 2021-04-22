@@ -67,7 +67,7 @@ function showAllResults(data){
         <a href='./ogloszenie.php?id=${element.order_id}' >
         
        
-        <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
+        <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-96 md:h-60'>
           <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url("../assets/img/sp1.jpg");background-size:cover;background-position:center'>
   
           </div>
@@ -203,11 +203,11 @@ function filterResults(){
             <a href='./ogloszenie.php?id=${element.order_id}' >
         
        
-            <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
+            <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-96 md:h-60'>
               <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url("../assets/img/sp1.jpg");background-size:cover;background-position:center'>
       
               </div>
-              <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
+              <div class='mt-4 md:w-2/3 h-2/3 md:h-full'>
                 <div class='flex w-full  justify-between items-center md:h-3/5 '>
                 <h2  class='ml-4 text-2xl md:text-3xl'>${element.title}</h2>
                 <p class='font-bold mr-4 md:text-2xl'> ${element.order_price}zł</p>

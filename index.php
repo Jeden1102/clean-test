@@ -7,6 +7,13 @@ $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+$email = $_SESSION['email'];
+
+$sql = "SELECT * from user where mail = '$email'";
+$result = $conn->query($sql);
+
+$json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$img  = $json2[0]["image_url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +68,12 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
           echo '<div class="relative profile-dropdown ">
           <button type="button" class="mx-4 bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-expanded="false" aria-haspopup="true">
             <span class="sr-only">Open user menu</span>
-            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            ';
+            if($json2[0]["image_url"] != ""){
+              echo '<img class="h-8 w-8 rounded-full" src="./uploads/user_avatars/'.$img.'" alt="">';
+            }else{
+              echo '<img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">';
+            } echo '
           </button>
         </div>
 
@@ -94,10 +106,10 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </div>
 
 <div class="w-full h-screen">
-    <div class="h-3/5" class="grid place-content-center flex items-center" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
-      <div class="w-full h-3/5 sm:h-2/5 bg-black bg-opacity-70 absolute sm:mt-24 border-t-2 border-gren-400 border-b-2 border-gren-400">
+    <div class="h-4/5 sm:h-3/5" class="grid place-content-center flex items-center" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
+      <div class="w-full h-4/5 sm:h-2/5 bg-black bg-opacity-70 absolute sm:mt-24 border-t-2 border-gren-400 border-b-2 border-gren-400">
         <h1 class="text-center  text-white  font-bold text-5xl mt-8 head-witamy">Click<span class="text-green-400">&</span>Clean</h1>
-        <p class="text-center text-white mt-8 font-light   sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!Platforma łącząca ludzi posiadający srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
+        <p class="text-center text-white mt-8 font-light px-2  sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!Platforma łącząca ludzi posiadający srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
         <div class="flex w-full items-center justify-center mt-4 ">
         <?php
         if(isset($_SESSION['email'])){
@@ -160,7 +172,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </div>
 <!-- carousel -->
 
-<div class="py-12 bg-white mt-4">
+<div class="py-12 bg-white mt-40">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="lg:text-center">
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">

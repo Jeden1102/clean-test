@@ -49,7 +49,13 @@ $result = $conn->query($sql);
 
     @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+    $email = $_SESSION['email'];
 
+    $sql = "SELECT * from user where mail = '$email'";
+    $result = $conn->query($sql);
+    
+    $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $img  = $json2[0]["image_url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +155,7 @@ include '../components/header.php';
           </button>
           </a>    
       </div>
-      <div class="ogloszenia">
+      <div class="ogloszenia mb-12">
       
       </div>
       <?php
