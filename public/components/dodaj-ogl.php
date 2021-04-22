@@ -33,7 +33,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 Opis
               </label>
               <div class="mt-1">
-                <textarea id="about" name="order_description" rows="3" class="h-8 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Opisz zlecenie"></textarea>
+                <textarea id="about" name="order_description" rows="3" class="h-20 pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Opisz zlecenie"></textarea>
               </div>
              
             </div>
@@ -65,7 +65,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="comments" name="home_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="comments" name="home_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="comments" class="font-medium text-gray-700">Sprzątanie domu/mieszkania</label>
@@ -74,7 +74,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="candidates" name="car_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="candidates" name="car_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="candidates" class="font-medium text-gray-700">Sprzątanie samochodu</label>
@@ -83,7 +83,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
-                    <input id="offers" name="window_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <input id="offers" name="window_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
                   </div>
                   <div class="ml-3 text-sm">
                     <label for="offers" class="font-medium text-gray-700">Mycie okien</label>
@@ -137,7 +137,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               Wstecz
   </button>
   <button type="button" class="next-step inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Dalej !
+              Dalej
   </button>
   </div>
 </div>

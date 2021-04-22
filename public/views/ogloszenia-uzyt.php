@@ -73,7 +73,7 @@ include '../components/header.php';
      <div class="w-full  lg:w-full h-20  flex justify-center items-center relative">
        
        <div class="ogl-info cursor-pointer w-32 lg:w-72 absolute left-0 lg:left-0 top-0 h-full flex items-center bg-green-400 shadow-md step-one-visual text-white justify-center lg:justify-start">
-         <i class="text-2xl fas fa-info-circle mr-2"></i>
+         <i class="text-2xl fas fa-info-circle mr-2 lg:ml-1"></i>
          <p class="hidden lg:block">
          Informacje o ogłoszeniu
          </p> 

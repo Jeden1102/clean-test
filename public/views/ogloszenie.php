@@ -2,7 +2,13 @@
 session_start();
 require '../../back/conn.php';
 
-$sql = "SELECT * from orders";
+if(!isset($_GET['id'])){
+    heder("Location:error-page.php");
+    exit();
+}
+
+$id=$_GET['id'];
+$sql = "SELECT * from orders WHERE order_id=$id";
 $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -21,34 +27,37 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link href="../additionalcss.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-</head>
-
-<body class="overflow-x-hidden">
 <?php
 include '../components/header.php';
 ?>
         <div class="w-11/12 card mx-auto shadow h-full mt-4  ">
            
+           <!-- ładowane dynamicznie -->
+           
            <div class="md:flex w-full h-full pb-4">
-           <div class="h-96 md:w-1/2 bg-red-400 md:mt-6 md:ml-4 shadow rounded " style="background-image:url('../assets/img/sp1.jpg');background-size:cover;background-position:center">
+           <?php 
+           echo'
+           <div class="h-96 md:w-1/2 bg-red-400 md:mt-6 md:ml-4 shadow rounded " style="background-image:url('.'../assets/img/sp1.jpg'.');background-size:cover;background-position:center">
             </div>
 
             <div class="md:w-1/2 ">
                 <div class="card shadow w-11/12 mx-auto mt-4">
-                <h2 class="font-bold text-3xl my-2 text-center">Zlecę mycie podłogi</h2>
-                <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis iste dolorum adipisci praesentium soluta ab? Pariatur voluptate obcaecati illum unde eos amet cum placeat.</p>
+                <h2 class="font-bold text-3xl my-2 text-center">'.$json[0]["title"].'</h2>
+                <p class="p-2">'.$json[0]["description"].'</p>
                 </div>
                 
                 <div class="card shadow mt-4 flex w-11/12 mx-auto p-2">
                     
-                    <p class="text-2xl my-2">299zł</p>
-                    <p class="font-light my-2">Opole, Krakowska 16</p>
+                    <p class="text-2xl my-2">'.$json[0]["order_price"].' zł</p>
+                    <p class="font-light my-2">'.$json[0]["city"].','.$json[0]["street"].' '.$json[0]["number"].'</p>
 
                 </div>
-                <div class="card shadow w-11/12 mx-auto mt-4 p-2">
+                <div class="card shadow w-11/12 mx-auto mt-4 p-2">'
+            ?>
                     <!-- jesli zalogowany -->
 
                     <?php
+
                     if(isset($_SESSION['email'])){
                     echo '<div>
                     <button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -75,6 +84,7 @@ include '../components/header.php';
             </div>
 
            </div>
+           <!-- ładowane na stałe -->
            <div class="shadow mb-8">
            <h2 class="text-center mt-6 text-2xl">Sprawdź podobne ogłoszenia !</h2>
             <div class="bg-red-200 mt-4 h-72  w-full md:w-11/12 mx-auto">
@@ -83,6 +93,12 @@ include '../components/header.php';
                     <ul class="splide__list  h-72 mt-4">
 
                 <?php
+
+                    $sql = "SELECT * from orders";
+                    $result = $conn->query($sql);
+
+                    $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
                     foreach ($json as $value) {
                     
                     echo '

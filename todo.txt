@@ -1,8 +1,6 @@
-
-
-
-
-
-
-
-
+stylizacja dodawania ogloszenia - wysyokość inputow np.
+sprawdzenie zeby min 1 chec był zaznaczony
+poprawa wersji mobilnej
+index poprawa banera
+przekierowanie na stronę pojedynczego ogłoszenia po klikniecu ogloszenia
+przy dodaj ogloszenia sprawdzenie czy jest zalgoowany

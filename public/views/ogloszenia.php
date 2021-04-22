@@ -69,27 +69,7 @@ $result = $conn->query($sql);
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <script>
-  //   let min1 = 0;
-  //   let max2 = 0;
-  // $( function() {
-  //   $( "#slider-range" ).slider({
-  //     range: true,
-  //     min: 0,
-  //     max: 500,
-  //     values: [ 1, 500 ],
-  //     slide: function( event, ui ) {
-  //       $( "#amount" ).val( "zł " + ui.values[ 0 ] + " - zł " + ui.values[ 1 ] );
-  //       min1 = ui.values[0];
-  //       min2 = ui.values[1];
-  //       document.cookie="min1=" + min1;
-  //       document.cookie="min2=" + min2;
 
-  //     }
-  //   });
-  //   $( "#amount" ).val( "zł " + $( "#slider-range" ).slider( "values", 0 ) +
-  //     " - zł " + $( "#slider-range" ).slider( "values", 1 ) );
-
-  // } );
 
   </script>
 <body class="overflow-x-hidden">
@@ -110,15 +90,16 @@ include '../components/header.php';
               <form action="../../back/ogl-filtr.php" method="POST">
               <div>
                   <label for="exampleInputEmail1" class="form-label">Lokalizcja</label>
-                  <input name="lokalizacja" value="<?php if(isset($_GET['city'])){if($_GET['city'] != '0' ){echo $_GET['city'];}}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
+                  <input name="lokalizacja" value="<?php if(isset($_GET['city'])){if($_GET['city'] != '0' ){echo $_GET['city'];}}?>" type="text" class="form-control lokalizacja" id="exampleInputEmail1" placeholder="Opole" aria-describedby="emailHelp">
               </div>
           <p class="w-4/5 mx-auto mt-4 mb-2">
           <label for="amount">Zakres cen:</label>
-          <input name="min" value="<?php if(isset($_GET['minPrice'])){echo $_GET['minPrice'];}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="min" aria-describedby="emailHelp">
+          <input name="min" type="number" value="<?php if(isset($_GET['minPrice'])){echo $_GET['minPrice'];}?>" type="text" class="form-control minimum" id="exampleInputEmail1" placeholder="min" aria-describedby="emailHelp">
 
-          <input name="max" value="<?php if(isset($_GET['minPrice'])){echo $_GET['order_price'];}?>" type="text" class="form-control" id="exampleInputEmail1" placeholder="max" aria-describedby="emailHelp">
+          <input name="max" type="number" min="1" value="<?php if(isset($_GET['minPrice'])){echo $_GET['order_price'];}?>" type="text" class="form-control maximum" id="exampleInputEmail1" placeholder="max" aria-describedby="emailHelp">
 
           <!-- <input type="text" id="amount" readonly class="text-green-400 font-bold " > -->
+
           </p>
   
           <!-- <div id="slider-range"></div> -->
@@ -143,16 +124,16 @@ include '../components/header.php';
               <div>
               <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column " for="ch3">
               <img src="../assets/img/window-cleaner_4.png" alt="" class="w-16 h-16" />
-              <p class="mt-2">Malowanie</p>
+              <p class="mt-2">Sprzątanie domu</p>
               </label>
               <input name="home_clean" id="ch3" type="checkbox" hidden>
               </div>
               
           </div>
           </div>
-          <button type="submit" class="mt-4 next-step w-40 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <!-- <button type="submit" class="mt-4 next-step w-40 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Filtruj
-          </button>
+          </button> -->
           </form>
       </div>
     </div>
@@ -167,38 +148,42 @@ include '../components/header.php';
           </button>
           </a>    
       </div>
+      <div class="ogloszenia">
+      
+      </div>
       <?php
-        if(empty($json)){
+      
+        // if(empty($json)){
 
-          echo '<h2 class="text-center text-2xl">Brak dostępnych wyszukiwań</h2>';
-        }else{
-          foreach ($json as $value) {
+        //   echo '<h2 class="text-center text-2xl">Brak dostępnych wyszukiwań</h2>';
+        // }else{
+        //   foreach ($json as $value) {
           
-            echo "
-            <a href='' >
+        //     echo "
+        //     <a href='./ogloszenie.php?id=".$value['order_id'] . "' >
         
        
-            <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
-              <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
+        //     <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
+        //       <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
       
-              </div>
-              <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
-                <div class='flex w-full  justify-between items-center md:h-3/5 '>
-                <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
-                <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
-                </div>
+        //       </div>
+        //       <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
+        //         <div class='flex w-full  justify-between items-center md:h-3/5 '>
+        //         <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
+        //         <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
+        //         </div>
                
-                <div class='font-light mt-2 md:ml-4'>
-                 " .  $value['city'] . " ," .  $value['street'] . "" .  $value['number'] . "
-                </div>
-              </div>
+        //         <div class='font-light mt-2 md:ml-4'>
+        //          " .  $value['city'] . " ," .  $value['street'] . "" .  $value['number'] . "
+        //         </div>
+        //       </div>
                   
-            </div>
-            </a> 
+        //     </div>
+        //     </a> 
       
-            ";
-          }
-        }
+        //     ";
+        //   }
+        // }
 
       ?>
       <!-- ogloszenie -->
@@ -236,6 +221,10 @@ include '../components/header.php';
 
 </script>
 <script src="../scripts/checkboxes.js"></script>
+
+
+</script>
+<script src="../scripts/getApiData.js"></script>
 
 
 </script>
