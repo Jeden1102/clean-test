@@ -6,50 +6,7 @@ if(empty($_GET)){
   $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}else{
-  // DO POPRAWY
-  $zapytaniesql ="SELECT * FROM orders WHERE ";
-  foreach ($_GET as $key => $value) { 
-    // echo $key.'</br>';
-    // echo $value.'</br>';
-    
-    //klejenie zapytania
-      if($key=='minPrice'){
-        $zapytaniesql = $zapytaniesql. "order_price" . ">=" . $value . " AND ";
-      }
-      if($key=='order_price'){
-        $zapytaniesql = $zapytaniesql. $key . "<=" . $value . " AND ";
-
-      }
-      if($key=='city'){
-        if($value=='0'){
-
-        }else{
-          $zapytaniesql = $zapytaniesql. $key . " = " . "'" . $value . "'" .  " AND ";
-        }
-        
-        
-      }
-      if($key=='car_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=" . $value . " AND ";
-      }
-      if($key=='window_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=". $value . " AND ";
-      }
-      if($key=='home_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=" . $value . " AND ";
-      }
-  }
-  $zapytaniesql = $zapytaniesql.'true;';
-  //  echo $zapytaniesql;
-  $sql = $zapytaniesql;
-    
 }
-$result = $conn->query($sql);
-
-    @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -143,72 +100,11 @@ include '../components/header.php';
 
     <div class="w-full shadow mt-4 py-2 orders ">
       <div class="shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse flex items-center justify-center mb-4 bg-gray-100">
-      <a href="./ogloszenia-uzyt.php">
-      <button type="button" class="my-2 next-step w-40 items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Dodaj Ogłoszenie
-          </button>
-          </a>    
+      <div id="map" class=" h-screen w-full"></div>
       </div>
-      <div class="ogloszenia">
-      
-      </div>
-      <?php
-      
-        // if(empty($json)){
 
-        //   echo '<h2 class="text-center text-2xl">Brak dostępnych wyszukiwań</h2>';
-        // }else{
-        //   foreach ($json as $value) {
-          
-        //     echo "
-        //     <a href='./ogloszenie.php?id=".$value['order_id'] . "' >
-        
-       
-        //     <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
-        //       <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
-      
-        //       </div>
-        //       <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
-        //         <div class='flex w-full  justify-between items-center md:h-3/5 '>
-        //         <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
-        //         <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
-        //         </div>
-               
-        //         <div class='font-light mt-2 md:ml-4'>
-        //          " .  $value['city'] . " ," .  $value['street'] . "" .  $value['number'] . "
-        //         </div>
-        //       </div>
-                  
-        //     </div>
-        //     </a> 
-      
-        //     ";
-        //   }
-        // }
 
-      ?>
-      <!-- ogloszenie -->
-
-      <!-- <a href="" class="my-2">
-      
-     
-      <div class="shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52">
-        <div class="md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3" style="background-image:url('../assets/img/sp2.jpg');background-size:cover;background-position:center">
-
-        </div>
-        <div class="mt-4 md:w-2/3 h-1/3 md:h-full">
-          <div class="flex w-full  justify-between items-center md:h-3/5 ">
-          <h2  class="ml-4 text-2xl md:text-3xl">Zlecę sprzatanie domu</h2>
-          <p class="font-bold mr-4 md:text-2xl">199,99zł</p>
-          </div>
-         
-          <div class="font-light mt-2 md:ml-4">
-            Opole, 14 Maja 47-180
-          </div>
-        </div>
-            
-      </div>
-      </a>  -->
+    
     </div>
     </div>
    
@@ -225,7 +121,12 @@ include '../components/header.php';
 
 
 </script>
-<script src="../scripts/getApiData.js"></script>
+<!-- <script src="../scripts/getApiData.js"></script> -->
 
 
 </script>
+<script src="../scripts/mapApi.js"></script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      async
+></script>

@@ -23,6 +23,8 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link href="./public/additionalcss.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 
 <body >
@@ -41,7 +43,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
             <a href="./public/views/ogloszenia.php" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
-            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
+            <a href="./public/views/users.php" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>
       </div>
@@ -93,12 +95,28 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <div class="w-full h-screen">
     <div class="h-3/5" class="grid place-content-center flex items-center" style="background-image:url('./public/assets/img/hello.jpg');background-size:cover;background-position:center">
-      <div class="w-full h-2/5 bg-gray-300 opacity-80 absolute mt-24">
-        <p class="text-center opacity-100 font-bold text-2xl">Witamy na stronie Click&Clean</p>
-        <p class="text-center opacity-100 font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, asperiores.<p>
-        <div class="flex w-full h-4/5 items-end justify-center mb-0">
-        <button class="text-xl font-bold border-1 rounded-md p-2 flex-1 mx-12 border-green-500 bg-green-400 hover:bg-green-500 opacity-100 shadow-md">Dodaj ogłoszenie</button>
-        <button class="text-xl font-bold border-1 rounded-md p-2 flex-1 mx-12 border-green-500 bg-green-400 hover:bg-green-500 opacity-100 shadow-md">Znajdź wykonawców</button>
+      <div class="w-full h-3/5 sm:h-2/5 bg-black bg-opacity-70 absolute sm:mt-24 border-t-2 border-gren-400 border-b-2 border-gren-400">
+        <h1 class="text-center  text-white  font-bold text-5xl mt-8 head-witamy">Click<span class="text-green-400">&</span>Clean</h1>
+        <p class="text-center text-white mt-8 font-light   sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!Platforma łącząca ludzi posiadający srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
+        <div class="flex w-full items-center justify-center mt-4 ">
+        <?php
+        if(isset($_SESSION['email'])){
+          echo '
+
+      <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia-uzyt.php">Zostać wykonwacą</a>
+          ';
+        }else{
+          echo '
+
+      <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/login-register.php">Zostać wykonwacą</a>
+          ';
+        }
+        ?>
+        <p class="text-white sm:ml-4">LUB</p>
+
+
+        <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia.php">Szukaj ofert</a>
+
         </div>
       </div>
     </div>
@@ -114,7 +132,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
           
           echo '
 			  <li class="splide__slide  h-full card">
-
+          <a href="./public/views/ogloszenie.php?id=' .  $value['order_id'] . '" class="w-full h-full">
           <img class="w-full h-5/6"  src="./public/assets/img/sp1.jpg" alt="">
           <div class="flex items-center h-1/6">
             <h2 class="ml-2">' .  $value['title'] . '</h2>
@@ -123,6 +141,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             Sprawdź
         </button>
           </div>
+          </a>
         </li>
 
           

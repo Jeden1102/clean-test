@@ -11,9 +11,15 @@ require '../../back/conn.php';
 
 $email = $_SESSION['email'];
 
-$sql = "SELECT orders.street,orders.city,order_price,title,orders.number from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
+$sql = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
 $result = $conn->query($sql);
 @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+//DO ZROBIENIA 
+
+// $sql2 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
+// $result2 = $conn->query($sql2);
+// @$json2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 // print_r($json);
 ?>
 <!DOCTYPE html>

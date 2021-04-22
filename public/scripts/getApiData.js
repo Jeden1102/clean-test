@@ -29,7 +29,6 @@ async function getAllOrders(){
     fetch('../../back/api.php')
     .then(response => response.json())
     .then((data)=>{
-    //   console.log(data);
     //   filterResults(data);
     if(isFiltering == true){
         getAllOrders();
@@ -38,9 +37,7 @@ async function getAllOrders(){
         showAllResults(data);
     }
     orders = data;
-    console.log(orders);
     highest = Number(Math.max.apply(Math, orders.map(function(o) { return o.order_price; })));
-    console.log(highest)
 
     } );
 }
@@ -106,18 +103,15 @@ let ch3 = document.querySelector('#ch3');
 let slider = document.querySelector('#slider-range');
 lokalizacja.addEventListener('keyup',()=>{
     isFiltering = true;
-    console.log('tak');
     filterResults();
 })
 min.addEventListener('keyup',()=>{
     isFiltering = true;
-    console.log('tak');
 
     filterResults();
 })
 max.addEventListener('keyup',()=>{
     isFiltering = true;
-    console.log('tak');
 
     filterResults();
 })
@@ -147,7 +141,6 @@ function filterResults(){
       };
       console.log(filter);
     getAllOrders();
-    console.log(orders);
     // czyszczenie  diva
     if(filter.min != 0 && filter.max ==0){
         orders = orders.filter(obj => (Number(obj.order_price) >= Number(filter.min) && Number(obj.order_price) <= 9999999));
@@ -183,7 +176,6 @@ function filterResults(){
 
     }
     
-    console.log(orders);
     if(orders.length == 0){
         ogloszenia.innerHTML = "Brak dostępnych wyszkiwań, spróbuj użyć innych filtrów."
     }

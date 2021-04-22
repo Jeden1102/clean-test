@@ -32,7 +32,7 @@
     }else{
       foreach ($json as $value) {
         echo "
-        <a href='' >
+        <a href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
     
    
         <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
