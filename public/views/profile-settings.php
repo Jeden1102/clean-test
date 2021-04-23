@@ -75,6 +75,7 @@ include '../components/header.php';
                 <label for="fileInput" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</label>
               </div>
               <div class="after">
+              <input class="" id="user_id" type="hidden" name="user_id" value="<?php echo $json[0]['user_id']?>" />
               <input class="" id="fileInput" type="file" name="my_image" >
 
               </div>
@@ -211,6 +212,7 @@ if(isset($_GET["settingsChanged2"])){
 
   $script = file_get_contents('../scripts/showAlert.js');
   echo "<script>".$script."
+
   showAlert(alertSuccess,5000);
   </script>";
 }

@@ -4,6 +4,8 @@ let box = document.querySelector(".szeroki");
 let oglInfo = document.querySelector(".ogl-info");
 let oglDane = document.querySelector(".ogl-dane");
 let oglCena = document.querySelector(".ogl-cena");
+let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+console.log(checkboxes);
 
 let step = 0;
 

@@ -2,7 +2,7 @@
 session_start();
 require '../../back/conn.php';
 if(empty($_GET)){
-  $sql = "SELECT * from orders";
+  $sql = "SELECT * from orders;";
   $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -49,13 +49,13 @@ $result = $conn->query($sql);
 
     @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    $email = $_SESSION['email'];
+    @$email = $_SESSION['email'];
 
     $sql = "SELECT * from user where mail = '$email'";
     $result = $conn->query($sql);
     
     $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $img  = $json2[0]["image_url"];
+    @$img  = $json2[0]["image_url"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,11 +149,28 @@ include '../components/header.php';
 
     <div class="w-full shadow mt-4 py-2 orders ">
       <div class="shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse flex items-center justify-center mb-4 bg-gray-100">
-      <a href="./ogloszenia-uzyt.php">
-      <button type="button" class="my-2 next-step w-40 items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Dodaj Ogłoszenie
-          </button>
-          </a>    
+      <?php
+        if(isset($_SESSION['email'])){
+          echo '
+          <a href="./ogloszenia-uzyt.php">
+          <button type="button" class="my-2 next-step w-40 items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  Dodaj Ogłoszenie
+              </button>
+              </a> 
+          ';
+        }else{
+          echo '
+          <p class="ml-4">Aby dodać własne ogłoszenie najpierw musisz się zalogować<p>
+          <a href="./login-register.php">
+          <button type="button" class="my-2 next-step w-40 items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  Zaloguj się
+              </button>
+              </a> 
+          ';
+        }
+
+      ?>
+   
       </div>
       <div class="ogloszenia mb-12">
       

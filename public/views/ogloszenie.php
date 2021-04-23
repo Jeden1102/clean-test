@@ -12,6 +12,13 @@ $sql = "SELECT * from orders WHERE order_id=$id";
 $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+@$email = $_SESSION['email'];
+
+$sql = "SELECT * from user where mail = '$email'";
+$result = $conn->query($sql);
+
+$json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +48,15 @@ include '../components/header.php';
     </div>
     <div class="alert alert-danger hidden" role="alert">
     Już zgłosiłeś się do tej oferty <a class="text-green-600 cursor-pointer">zobacz status swoich zgłoszeń</a> !
+    </div>
+    <div class="alert alert-primary hidden" role="alert">
+    Ogłoszenie zostało zgłoszone.
+    </div>
+    <div class="alert alert-warning forgot-pwd hidden" role="alert">
+    Już zgłosiłeś to ogłoszenie. Prosimy o cierplilowość.
+    </div>
+    <div class="alert alert-danger not-email hidden" role="alert">
+    Nie możesz zgłosić swoje ogłoszenia.
     </div>
            <div class="md:flex w-full h-full pb-4">
 
@@ -99,6 +115,7 @@ include '../components/header.php';
                         ';
 
                     }
+                    include '../components/reportOgl.php';
                     ?>
                 </div>
 
@@ -115,7 +132,7 @@ include '../components/header.php';
 
                 <?php
 
-                    $sql = "SELECT * from orders";
+                    $sql = "SELECT * from orders;";
                     $result = $conn->query($sql);
 
                     $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -123,8 +140,9 @@ include '../components/header.php';
                     foreach ($json as $value) {
                     
                     echo '
+                        
                         <li class="splide__slide  h-full card">
-
+                        <a href="./ogloszenie.php?id=' .  $value['order_id'] . '" class="w-full h-full">
                     <img class="w-full h-5/6"  src="../assets/img/sp1.jpg" alt="">
                     <div class="flex items-center h-1/6">
                         <h2 class="ml-2">Zlecę mycie podłogi</h2>
@@ -133,6 +151,7 @@ include '../components/header.php';
                         Sprawdź
                     </button>
                     </div>
+                    </a>
                     </li>
 
                     
@@ -152,6 +171,7 @@ include '../components/header.php';
 </body>
 </html>
 <?php
+//aplikowanie do zgłoszenia
     if(isset($_GET["dodano"])){
         ?>
         <?php
@@ -176,6 +196,34 @@ include '../components/header.php';
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
         showAlert(alertWarning,12000);
+        
+        </script>";
+    }
+    //zgłaszanie ogłoszenia
+    if(isset($_GET["zgloszono"])){
+        ?>
+        <?php
+        $script = file_get_contents('../scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertPrimary,7000);
+        
+        </script>";
+    }
+    if(isset($_GET["juzzgloszono"])){
+        ?>
+        <?php
+        $script = file_get_contents('../scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertForgotPwd,7000);
+        
+        </script>";
+    }
+    if(isset($_GET["swoje"])){
+        ?>
+        <?php
+        $script = file_get_contents('../scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(noemail,7000);
         
         </script>";
     }
@@ -205,3 +253,17 @@ include '../components/header.php';
 
 </script>
 <script src="../scripts/showAlert.js"></script>
+<script>
+ let showResetBtn = document.querySelector('.show-reset-btn');
+ let resetPwdWindow = document.querySelector('.pwd-reset');
+ let btnChange = document.querySelector('#btn-change');
+ let btnCancel = document.querySelector('#btn-cancel');
+ showResetBtn.addEventListener('click',()=>{
+     resetPwdWindow.classList.remove('hidden');
+ })
+ btnCancel.addEventListener('click',()=>{
+    resetPwdWindow.classList.add('hidden');
+ })
+
+ 
+</script>

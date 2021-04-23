@@ -6,6 +6,12 @@ if(empty($_GET)){
   $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$email = $_SESSION['email'];
+
+$sql = "SELECT * from user where mail = '$email'";
+$result = $conn->query($sql);
+
+$json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 ?>
 <!DOCTYPE html>

@@ -1,7 +1,14 @@
 sprawdzenie zeby min 1 chec był zaznaczony <-- ogarnę jsem
-poprawa wersji mobilnej <--szmitu/ja
-index poprawa banera <--ogarne
+
+
 przy dodaj ogloszenia sprawdzenie czy jest zalgoowany <-- zrobię
 jak jestesmy np. na stronie oglsozenia to w navie ma się zmienić podswietlenie z strona głowna na ogloszenia
 w widokui pojedynczego ogloszenia na dole w karzulegi git linki dać
 w change setting przy dodawaniu zdjęcia pozmieniać headery jak jest error
+
+STATUSY OGLOSZEN :
+
+0 - aktywne
+1 - zakończończon - przez usera
+2 - zgloszone
+3- zbanowane
