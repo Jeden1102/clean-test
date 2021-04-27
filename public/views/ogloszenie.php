@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require '../../back/conn.php';
 
@@ -56,7 +57,7 @@ include '../components/header.php';
     Już zgłosiłeś to ogłoszenie. Prosimy o cierplilowość.
     </div>
     <div class="alert alert-danger not-email hidden" role="alert">
-    Nie możesz zgłosić swoje ogłoszenia.
+    Nie możesz zgłosić swojego ogłoszenia.
     </div>
            <div class="md:flex w-full h-full pb-4">
 
@@ -108,7 +109,7 @@ include '../components/header.php';
                     }else{
                         echo '<p>Aby aplikować do tego ogłoszenia lub zgłosić nieprawidłowość zawartość utwórz konto lub zaloguj się.</p>
                         <a href="./login-register.php">
-                        <button type="button" class="show-reset-btn mt-4 w-40 ml-4  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button type="button" class="show-reset-btn mt-4 w-40 ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Zaloguj się
                          </button>
                          </a>

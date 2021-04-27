@@ -97,7 +97,16 @@ btn.disabled = true;
 
 
 
+checkboxes.forEach(element => {
+    element.addEventListener('change',()=>{
+        if(element.checked==true){
+            console.log('ok')
+        }else{
+            console.log('nie ok')
 
+        }
+    })
+});
 title.addEventListener('keyup',()=>{
     checkValidation();
 });

@@ -1,10 +1,13 @@
-sprawdzenie zeby min 1 chec był zaznaczony <-- ogarnę jsem
+
+12) sprawdzenie czy wszystko ok + jeden check musi być zaznaczony << DOMINIK ale to potem na cihllu
+13) dodać widok gdzie się zglosiliśmy << DOMINIK bierze
+17) wyżej
+19) przycisk edytuj z poziomo widoku swoich ogłoszen -> prowadzi do totalnie osobnej strony z edycją tego ogłoszenia
 
 
-przy dodaj ogloszenia sprawdzenie czy jest zalgoowany <-- zrobię
-jak jestesmy np. na stronie oglsozenia to w navie ma się zmienić podswietlenie z strona głowna na ogloszenia
-w widokui pojedynczego ogloszenia na dole w karzulegi git linki dać
-w change setting przy dodawaniu zdjęcia pozmieniać headery jak jest error
+
+
+
 
 STATUSY OGLOSZEN :
 

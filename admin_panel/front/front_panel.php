@@ -5,7 +5,6 @@ require "../../back/conn.php";
 $sql = "SELECT * from orders JOIN notification ON orders.order_id=notification.order_id WHERE status IN(3,4)";
 $result = $conn->query($sql);
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
- var_dump($json);
  ?>
 
  <!DOCTYPE html>
@@ -51,13 +50,18 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
            <p>". $value['order_price']."</p>
            <p>". $value['date']."</p>
            <p>". $value['status']."</p>
+           <h1>". $value['order_id']."<h1>
+           
 
            
           </div>
         </div>
-        <button class='bg-green-400 hover:bg-green-500 border-1 font-bold text-white mx-2 border-green-500 ml-2'><p class='shadowek'>POKAZ JAKO DOBRE</p></button>
+       
+        <button class='bg-green-400 hover:bg-green-500 border-1 font-bold text-white mx-2 border-green-500 ml-2'><p class='shadowek'>POKAZ JAKO OK</p></button>
         <button class='bg-red-400 hover:bg-red-500 border-1 font-bold text-white mx-2 border-red-500 ml-2'><p class='shadowek'>ZBANUJ</p></button>
+        <form method='GET' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
         <button class='bg-blue-400 hover:bg-blue-500 border-1 font-bold text-white mx-2 border-blue-500'><p class='shadowek'>POKAŻ</p></button>
+        </form>
       </div>
       
 

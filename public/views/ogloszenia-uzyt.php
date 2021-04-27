@@ -11,16 +11,25 @@ require '../../back/conn.php';
 
 $email = $_SESSION['email'];
 
+//ogłoszenia aktywne
 $sql = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
 $result = $conn->query($sql);
 @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-//DO ZROBIENIA 
+//ogloszenia zakończone
+$sql5 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=1";
+$result5 = $conn->query($sql5);
+@$json5 = mysqli_fetch_all($result5, MYSQLI_ASSOC);
 
-// $sql2 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
-// $result2 = $conn->query($sql2);
-// @$json2 = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-// print_r($json);
+//ogłoszenia zbanowane
+$sql3 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=4";
+$result3 = $conn->query($sql3);
+@$json3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+
+//twoje zgloszenia
+$sql4 = "SELECT orders.street,orders.city,order_price,title,orders.number,orders.order_id,user.user_id,chosen_user from offers JOIN user ON user.user_id=offers.user_id JOIN orders ON offers.order_id=orders.order_id where user.mail = '$email' AND (chosen_user=user.user_id OR chosen_user IS NULL);";
+$result4 = $conn->query($sql4);
+@$json4 = mysqli_fetch_all($result4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +80,10 @@ include '../components/header.php';
 
     <div class="card p-4 shadow">
     <h2 class="p-4 text-3xl text-center font-light">Twoje zgłoszenia</h2>
+      <?php
+      include '../components/twoje-zgl.php';
+
+      ?>
     </div>
     
     </div>
@@ -90,7 +103,7 @@ include '../components/header.php';
         </div>
        <div class="ogl-cena cursor-pointer w-32 lg:w-72 absolute left-40 lg:left-96  h-full flex items-center justify-center shadow bg-green-200  step-three-visual text-white">
          <i class="text-2xl fas fa-tags mr-2"></i>
-         <p class="hidden lg:block">Cena i data</p> 
+         <p class="hidden lg:block">Cena i data</p>
         </div>
      </div>
       <?php
@@ -142,4 +155,5 @@ if(isset($_GET["dodano"])){
 
  
 </script>
+<script src=""></script>
               

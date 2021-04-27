@@ -1,55 +1,8 @@
 <?php
 session_start();
+$email = $_SESSION['email'];
 require '../../back/conn.php';
-if(empty($_GET)){
-  $sql = "SELECT * from orders;";
-  $result = $conn->query($sql);
 
-$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}else{
-  // DO POPRAWY
-  $zapytaniesql ="SELECT * FROM orders WHERE ";
-  foreach ($_GET as $key => $value) { 
-    // echo $key.'</br>';
-    // echo $value.'</br>';
-    
-    //klejenie zapytania
-      if($key=='minPrice'){
-        $zapytaniesql = $zapytaniesql. "order_price" . ">=" . $value . " AND ";
-      }
-      if($key=='order_price'){
-        $zapytaniesql = $zapytaniesql. $key . "<=" . $value . " AND ";
-
-      }
-      if($key=='city'){
-        if($value=='0'){
-
-        }else{
-          $zapytaniesql = $zapytaniesql. $key . " = " . "'" . $value . "'" .  " AND ";
-        }
-        
-        
-      }
-      if($key=='car_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=" . $value . " AND ";
-      }
-      if($key=='window_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=". $value . " AND ";
-      }
-      if($key=='home_clean'){
-        $zapytaniesql = $zapytaniesql. $key . "=" . $value . " AND ";
-      }
-  }
-  $zapytaniesql = $zapytaniesql.'true;';
-  //  echo $zapytaniesql;
-  $sql = $zapytaniesql;
-    
-}
-$result = $conn->query($sql);
-
-    @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    @$email = $_SESSION['email'];
 
     $sql = "SELECT * from user where mail = '$email'";
     $result = $conn->query($sql);
