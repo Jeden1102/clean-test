@@ -48,9 +48,9 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <div class="hidden md:block sm:ml-6 my-auto">
           <div class="flex space-x-4 items-center">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
-            <a href="./public/views/ogloszenia.php" class="text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
-            <a href="./public/views/users.php" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
+            <a href="" class="bg-blue-500 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
+            <a href="./public/views/ogloszenia.php" class="text-gray-700 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
+            <a href="./public/views/users.php" class="text-gray-700 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>
       </div>
@@ -251,40 +251,182 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </div>
 </div>
 
-<div class="min-h-0 mb-12 md:mb-0 w-full" style="color:#f2f2f2;">
-  <div class="h-3/4 w-full flex border-b border-black bg-purple-800">
-  <div class="flex-1">
-  <div class="text-xl font-bold">About Us</div>
-  <p>Click&Clean to firma zajmująca się tworzeniem ogłoszeń dla użytkowników, którzy poszukują ofert pracy z zakresu usług sprzątania oraz użytkowników, którzy pragną wynająć profesjonalny sektor usług utrzymania czystości. Gwarantujemy najwyższą jakość usług, posiadamy duże doświadczenie oraz same pozytywne opinie zadowolonych klientów. Zaufało nam już ponad 1000 klientów, zaufaj i ty!</p>
-  </div>
-    <div class="flex-1 justify-center flex">
-      <ul class="list-none text-xl font-bold">Links
-        <li class="font-normal pt-4"><a href="#" class="hover:text-gray-400">Link</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
-        <li class="font-normal pt-2"><a href="#" class="hover:text-gray-400">Link</a></li>
-      </ul>
-    </div>
-    <div class="flex-1 justify-center h-full">
-      <div class="font-bold text-xl flex justify-center">Contact Us</div>
-        <div class="mt-4">
-          <div class="flex justify-center">
-            <textarea class="border-1 flex my-4 border-purple-600 w-1/2 outline-none rounded-md text-black"></textarea>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
           </div>
-          <div class="flex justify-center">
-            <input type="text" class="border-1 border-purple-600 flex w-1/2 outline-none rounded-md text-black" />
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example2" class="form-control" />
+              <label class="form-label" for="form5Example2">Email address</label>
+            </div>
           </div>
-          <div class="flex justify-center">
-            <button class="border-1 bg-purple-500 my-2 p-2 rounded-md border-purple-600 hover:bg-purple-600">Prześlij</button>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
           </div>
+          <!--Grid column-->
         </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+      Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Przydatne linki</h5>
+
+          <ul class="list-unstyled mb-0 font-light ">
+            <li>
+              <a href="#!" class="text-white text-light">Regulamin</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">FAQ</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Dummy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Więcej</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">O firmie</h5>
+
+          <ul class="list-unstyled mb-0 font-light">
+            <li>
+              <a href="#!" class="text-white">O nas</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Kontakt z nami</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Kariera</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Więcej</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Strona</h5>
+
+          <ul class="list-unstyled mb-0 font-light">
+            <li>
+              <a href="#!" class="text-white">Ogłoszenia</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Użytkownicy</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">API</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Więcej</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0 font-light">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
       </div>
-    </div>
-  <div class="h-1/4 w-full flex justify-center bg-purple-900"><i class="far fa-copyright mr-1.5 mt-1"></i> 2020 Copyright: MDBootstrap.com</div>
-</div>
-   
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Szmitu x JPG x Kristof x Skryba 2021 &copy;
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 <nav class="bg-green-400 w-full h-12 fixed bottom-0 left-0 border-t-2 border-green-500  md:hidden">
         
         <div class="flex h-full bg-green-400 ">

@@ -66,25 +66,25 @@ include '../components/header.php';
           <p>Wybierz rodzaj usługi (możesz wybrać więcej opcji na raz)</p>
           <div class="flex flex-wrap">
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer  flex items-center justify-center flex-column " for="ch1">
+              <label class="bg-green-400 item-check w-28 h-28 m-2 text-white rounded shadow cursor-pointer  flex items-center justify-center flex-column hover:bg-green-500 " for="ch1">
               <i class="fas fa-car text-5xl"></i>
-                <p class="mt-2">Sprzątanie samochodu</p>
+                <p class="mt-2 text-center">Sprzątanie samochodu</p>
               </label>
               <input name="car_clean" id="ch1" type="checkbox" hidden>
               </div>
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column " for="ch2">
-              <img src="../assets/img/window-cleaner_4.png" alt="" class="w-16 h-16" />
+              <label class="bg-green-400 item-check w-28 h-28 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column hover:bg-green-500 " for="ch2">
+              <img src="../assets/img/window-cleaner_4.png" alt="" class="w-14 h-14" />
               
-              <p>Sprzątanie domu</p>
+              <p class="mt-2 text-center">Sprzątanie domu</p>
               </label>
               <input name="window_clean" id="ch2" type="checkbox" hidden >
               </div>
               <div>
-              <label class="bg-green-400 item-check w-24 h-24 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column " for="ch3">
+              <label class="bg-green-400 item-check w-28 h-28 m-2 text-white rounded shadow cursor-pointer flex items-center justify-center flex-column hover:bg-green-500 " for="ch3">
               <i class="fas fa-th-large text-5xl "></i>
 
-              <p class="mt-2">Mycie okień</p>
+              <p class="mt-2 text-center">Mycie okień</p>
               </label>
               <input name="home_clean" id="ch3" type="checkbox" hidden>
               </div>
