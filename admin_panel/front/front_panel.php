@@ -2,9 +2,10 @@
 
 //ściąganie z bazy danych
 require "../../back/conn.php";
-$sql = "SELECT * from orders JOIN notification ON orders.order_id=notification.order_id WHERE status IN(3,4)";
+$sql = "SELECT orders.*,notification.user_id_from from orders JOIN notification ON orders.order_id=notification.order_id WHERE status IN(3,4)";
 $result = $conn->query($sql);
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ var_dump($json[0]);
  ?>
 
  <!DOCTYPE html>
@@ -56,10 +57,14 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
            
           </div>
         </div>
-       
+        <form method='POST' action='../back/zmien_na_ok.php?id=". $value['order_id']."'"."'>
         <button class='bg-green-400 hover:bg-green-500 border-1 font-bold text-white mx-2 border-green-500 ml-2'><p class='shadowek'>POKAZ JAKO OK</p></button>
+        <input type='hidden' value='ok' id='change_status'/>
+        </form>
+        <form method='POST' action='../back/ban-ogl.php?id=". $value['order_id']."'"."'>
         <button class='bg-red-400 hover:bg-red-500 border-1 font-bold text-white mx-2 border-red-500 ml-2'><p class='shadowek'>ZBANUJ</p></button>
-        <form method='GET' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
+        </form>
+        <form method='POST' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
         <button class='bg-blue-400 hover:bg-blue-500 border-1 font-bold text-white mx-2 border-blue-500'><p class='shadowek'>POKAŻ</p></button>
         </form>
       </div>

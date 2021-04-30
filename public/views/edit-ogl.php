@@ -64,55 +64,109 @@ include '../components/header.php';
 
            <?php 
            echo'
-           <div class="h-96 md:w-1/2 bg-red-400 md:mt-6 md:ml-4 shadow rounded " style="background-image:url('.'../assets/img/sp1.jpg'.');background-size:cover;background-position:center">
+           <div class="h-96 md:w-1/2 md:mt-6 md:ml-4 shadow rounded flex justify-center items-center flex-column " >
+           <form action="../../back/edit-ogl.php?id='.$id.'" method="POST">
+
+           <h2 class="mb-4 text-2xl">Zmiana zdjęcia</h2>
+           <div class="space-y-1 text-center">
+           <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+           </svg>
+           <div class="flex text-sm text-gray-600">
+             <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+               <span>Wybierz zdjęcie z komputera</span>
+               <input id="file-upload" name="file-upload" type="file" class="sr-only">
+             </label>
+           </div>
+           <p class="text-xs text-gray-500">
+             PNG, JPG, GIF do 10MB
+           </p>
+         </div>
             </div>
 
             <div class="md:w-1/2">
-                <div class="card shadow w-11/12 mx-auto mt-4">
+                <div class="card shadow w-11/12 mx-auto mt-4 p-2">
                 <div class="flex">
-                    <p class="my-2">Edytuj ogłoszenie</p>
+                    <p class="my-2">Edytuj tytuł ogłoszenia</p>
                     <p class="font-bold my-2 ml-auto text-center">
-                        <input class="border-1 rounded-md p-1" value='.$json[0]["title"].'>
+                        <input name="title" class="border-1 rounded-md p-1" value='.$json[0]["title"].'>
                     </p>
                 </div>
                 <div class="flex">
                     <p class="my-2">Edytuj opis</p>
                     <p class="font-bold my-2 ml-auto text-center">
-                        <input class="border-1 rounded-md p-1" value='.$json[0]["description"].'>
+                        <input name="description" class="border-1 rounded-md p-1" value='.$json[0]["description"].'>
                     </p>
                 </div>
                 </div>
                 
                 <div class="card shadow mt-4 flex w-11/12 mx-auto p-2">
                     <div class="flex">
-                        <p class="my-2">Edytuj datę</p>
+                        <p class="my-2">Edytuj datę ważności</p>
                         <p class="font-bold my-2 ml-auto text-center">
-                            <input class="border-1 rounded-md p-1" type="date" value='.$json[0]["date"].'>
+                            <input name="date" class="border-1 rounded-md p-1" type="date" value='.$json[0]["date"].'>
                         </p>
-                    </div>';
+                    </div>
+                ';
 
-                    // temat ogłoszenia
-
-                    echo "<p> Zlecenie obejmuje </p>";
-                        if($json[0]["car_clean"]==1)
-                        echo "<p>Mycie auta</p>";
-                        if($json[0]["window_clean"]==1)
-                        echo "<p>Mycie okien</p>";
-                        if($json[0]["home_clean"]==1)
-                        echo "<p>Sprzątanie domu</p>";
+                        
+                        if($json[0]["car_clean"]==1){
+                            echo '
+                                <div><input id="comments" checked name="car_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check"></div>
+                                <div><p>Mycie auta</p></div>
+                            
+                            
+                            ';
+                        }else{
+                            echo '
+                            <input id="comments" name="car_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
+                            mycie auta
+                            ';
+                        }
+                        if($json[0]["window_clean"]==1){
+                            echo '
+                            <input id="comments" checked checked name="window_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
+                            mycie okna
+                            ';
+                        }else{
+                            echo '
+                            <input id="comments"  name="window_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
+                            mycie okna
+                            ';
+                        }
+                        if($json[0]["home_clean"]==1){
+                            echo '
+                            <input id="comments" checked name="home_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
+                            mycie domu
+                            ';
+                        }else{
+                            echo '
+                            <input id="comments" name="home_clean" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded check-check">
+                            mycie domu
+                            ';
+                        }
                     
                     echo '
-                    <div class="flex">
-                        <p class="text-2xl my-2">Edytuj cenę</p>
-                        <p class="text-2xl my-2 ml-auto"><input class="border-1 rounded-md" type="number" value='.$json[0]["order_price"].'></p>
-                    </div>
-                    
-                    <p class="font-light my-2">'.$json[0]["city"].','.$json[0]["street"].' '.$json[0]["number"].'</p>
 
+                    <div class="input-group">
+                    <p class="text-2xl my-2 w-3/4">Edytuj cenę</p>
+                    <input minlength="1" type="number" value='.$json[0]["order_price"].' name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
+                    <span class="input-group-text">zł</span>
+                  </div>
+                    
+                    <div class="flex">
+                    <p class="my-2">Edytuj Adres</p>
+                    <p class="font-light my-2 ml-auto">
+                    <input name="city" class="border-1 rounded-md" placeholder="miasto" value='.$json[0]["city"].'> <input name="street" class="border-1 rounded-md" placeholder="ulica" value=' .$json[0]["street"].'> <input name="number" placeholder="numer domu" class="border-1 rounded-md w-1/6 lg:w-1/4" value='.$json[0]["number"].'>
+                    </p>
+                    </div>
                 </div>'
+                
             ?>
             <div class="h-12 mt-4 flex justify-center">
-                <button class=" bg-green-400 rounded-md text-2xl text-white p-1 border-1 border-green-500 hover:bg-green-500">Zatwierdź</button>
+                <button type="submit" class=" bg-green-400 rounded-md text-2xl text-white p-1 border-1 border-green-500 hover:bg-green-500">Zatwierdź</button>
             </div>
+            </form>
+
 </body>
 </html>

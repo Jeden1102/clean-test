@@ -12,7 +12,7 @@ require '../../back/conn.php';
 $email = $_SESSION['email'];
 
 //ogłoszenia aktywne
-$sql = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email'";
+$sql = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND (status=0 OR status=2)";
 $result = $conn->query($sql);
 @$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -22,7 +22,7 @@ $result5 = $conn->query($sql5);
 @$json5 = mysqli_fetch_all($result5, MYSQLI_ASSOC);
 
 //ogłoszenia zbanowane
-$sql3 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=4";
+$sql3 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=3";
 $result3 = $conn->query($sql3);
 @$json3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
 
@@ -30,6 +30,7 @@ $result3 = $conn->query($sql3);
 $sql4 = "SELECT orders.street,orders.city,order_price,title,orders.number,orders.order_id,user.user_id,chosen_user from offers JOIN user ON user.user_id=offers.user_id JOIN orders ON offers.order_id=orders.order_id where user.mail = '$email' AND (chosen_user=user.user_id OR chosen_user IS NULL);";
 $result4 = $conn->query($sql4);
 @$json4 = mysqli_fetch_all($result4, MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
