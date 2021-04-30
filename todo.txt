@@ -1,13 +1,7 @@
 
 12) sprawdzenie czy wszystko ok + jeden check musi być zaznaczony << DOMINIK ale to potem na cihllu
-13) dodać widok gdzie się zglosiliśmy << DOMINIK bierze
-17) wyżej
-19) przycisk edytuj z poziomo widoku swoich ogłoszen -> prowadzi do totalnie osobnej strony z edycją tego ogłoszenia
-Undefined offset: 0 in C:\x\htdocs\clean-test\admin_panel\front\front_panel.php on line 8
-NULL
-edycja ogloszenia: zmiania imienia i nazwiska
-zmiana nicku jakas dziwna,dziala ale trzeba przelaczyc strone
-
+13) dodać widok gdzie się zglosiliśmy << ok + status czy zaakceptowany czy nie << DOMINIK bierze
+naprawić widok ogłoszeń zbanowaync aktywnyc etc
 
 
 STATUSY OGLOSZEN :

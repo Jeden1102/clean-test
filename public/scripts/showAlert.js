@@ -4,6 +4,7 @@ let alertWarning = document.querySelector(".alert-warning");
 let alertPrimary = document.querySelector(".alert-primary");
 let alertForgotPwd = document.querySelector(".forgot-pwd");
 let noemail = document.querySelector('.not-email');
+let edited = document.querySelector('.edited');
 
 function showAlert(alert,time){
     alert.classList.remove("hidden");

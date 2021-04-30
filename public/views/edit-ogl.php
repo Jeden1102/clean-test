@@ -87,6 +87,18 @@ include '../components/header.php';
             <div class="md:w-1/2">
                 <div class="card shadow w-11/12 mx-auto mt-4 p-2">
                 <div class="flex">
+                <p class="my-2">Imię</p>
+                <p class="font-bold my-2 ml-auto text-center">
+                    <input name="fname" class="border-1 rounded-md p-1" value='.$json[0]["fname"].'>
+                </p>
+            </div>
+            <div class="flex">
+            <p class="my-2">Nazwisko</p>
+            <p class="font-bold my-2 ml-auto text-center">
+                <input name="lname" class="border-1 rounded-md p-1" value='.$json[0]["lname"].'>
+            </p>
+        </div>
+                <div class="flex">
                     <p class="my-2">Edytuj tytuł ogłoszenia</p>
                     <p class="font-bold my-2 ml-auto text-center">
                         <input name="title" class="border-1 rounded-md p-1" value='.$json[0]["title"].'>
@@ -164,7 +176,8 @@ include '../components/header.php';
                 
             ?>
             <div class="h-12 mt-4 flex justify-center">
-                <button type="submit" class=" bg-green-400 rounded-md text-2xl text-white p-1 border-1 border-green-500 hover:bg-green-500">Zatwierdź</button>
+                <button type="submit" class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Zatwierdź</button>
+
             </div>
             </form>
 

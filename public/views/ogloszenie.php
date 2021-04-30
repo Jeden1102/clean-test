@@ -59,6 +59,9 @@ include '../components/header.php';
     <div class="alert alert-danger not-email hidden" role="alert">
     Nie możesz zgłosić swojego ogłoszenia.
     </div>
+    <div class="alert alert-success edited hidden" role="alert">
+    Ogłoszenie zedytowane pomyślnie !
+    </div>
            <div class="md:flex w-full h-full pb-4">
 
            <?php 
@@ -179,6 +182,15 @@ include '../components/header.php';
         $script = file_get_contents('../scripts/showAlert.js');
         echo "<script>".$script."
         showAlert(alertSuccess,12000);
+        
+        </script>";
+    }
+    if(isset($_GET["edited"])){
+        ?>
+        <?php
+        $script = file_get_contents('../scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(edited,7000);
         
         </script>";
     }

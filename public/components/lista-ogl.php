@@ -36,13 +36,12 @@
     }else{
       foreach ($json as $value) {
         echo "
-        <a href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
+        <a  href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
     
    
-        <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse '>
-          <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
+        
+          <div class='md:w-1/3 md:h-full w-full mx-auto rounded h-2/3' style='background-image:url("."../assets/img/sp1.jpg".");background-size:cover;background-position:center'>
   
-          </div>
           <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
             <div class='flex w-full  justify-between items-center md:h-3/5 '>
             <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
@@ -53,7 +52,7 @@
              " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
             </div>
             <div class='font-light mt-2 md:ml-4'>
-           <a href='../views/edit-ogl.php?id=" .  $value['order_id'] . "'><button class='ml-4 border-2 p-0.5 border-green-500 text-white bg-green-400 hover:bg-green-500 rounded-md w-24'>Edytuj</button></a>
+           <a href='../views/edit-ogl.php?id=" .  $value['order_id'] . "'><button class=' next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>Edytuj</button></a>
            <div class='accordion-item mt-4'>
            <a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample" .  $value['order_id'] . "' role='button' aria-expanded='false' aria-controls='collapseExample'>
            <div class='flex'><p>Sprawdź chętnych do wykonania zlecenia</p> <p class='animate-bounce mx-2'>(1)</p> <p class='animate-ping mx-2 text-red-700'>!</p></div>
@@ -122,7 +121,7 @@
              " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
             </div>
             <div class='font-light mt-2 md:ml-4'>
-           <a href='../views/edit-ogl.php?id=" .  $value['order_id'] . "'><button class='ml-4 border-2 p-0.5 border-green-500 text-white bg-green-400 hover:bg-green-500 rounded-md w-24'>Edytuj</button></a>
+           <a href='../views/edit-ogl.php?id=" .  $value['order_id'] . "'><button class='next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>Edytuj</button></a>
            <div class='accordion-item mt-4'>
            <a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample" .  $value['order_id'] . "' role='button' aria-expanded='false' aria-controls='collapseExample'>
            <div class='flex'><p>Sprawdź chętnych do wykonania zlecenia</p> <p class='animate-bounce mx-2'>(1)</p> <p class='animate-ping mx-2 text-red-700'>!</p></div>
@@ -173,12 +172,10 @@
       foreach ($json3 as $value) {
         echo "
         <a href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
-    
-   
-        <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse '>
-          <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
+        
+          <div class='md:w-1/3 md:h-full w-full mx-auto rounded h-2/3' style='background-image:url("."../assets/img/sp1.jpg".");background-size:cover;background-position:center'>
   
-          </div>
+          
           <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
             <div class='flex w-full  justify-between items-center md:h-3/5 '>
             <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
@@ -189,7 +186,7 @@
              " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
             </div>
             <div class='font-light mt-2 md:ml-4'>
-           <a href='../views/edit-ogl.php?id=" .  $value['order_id'] . "'><button class='ml-4 border-2 p-0.5 border-green-500 text-white bg-green-400 hover:bg-green-500 rounded-md w-24'>Edytuj</button></a>
+           
            <div class='accordion-item mt-4'>
            <a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample" .  $value['order_id'] . "' role='button' aria-expanded='false' aria-controls='collapseExample'>
            <div class='flex'><p>Sprawdź chętnych do wykonania zlecenia</p> <p class='animate-bounce mx-2'>(1)</p> <p class='animate-ping mx-2 text-red-700'>!</p></div>
