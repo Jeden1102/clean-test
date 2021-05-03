@@ -46,7 +46,7 @@
     transition: .3s;
 }
 .filter-translate{
-    transform: translateX(0%);
+    transform: translateX(10%);
 }
 .checked-item{
     border:3px solid black;
@@ -68,7 +68,4 @@
     left:0;
     top:0;
     content: '';
-}
-p.shadowek{
-    text-shadow: 1px 1px #999;
 }

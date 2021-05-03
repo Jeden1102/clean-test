@@ -25,7 +25,7 @@
           <div class="flex flex-col">
   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
 
       <!-- aktywne ogłoszenia -->
 
@@ -36,11 +36,11 @@
     }else{
       foreach ($json as $value) {
         echo "
-        <a  href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
+        <a class='w-full h-full bg-red-300'  href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
     
    
         
-          <div class='md:w-1/3 md:h-full w-full mx-auto rounded h-2/3' style='background-image:url("."../assets/img/sp1.jpg".");background-size:cover;background-position:center'>
+          <div class='md:w-1/3  md:h-full  mx-auto rounded h-2/3' style='background-image:url("."../assets/img/sp1.jpg".");background-size:cover;background-position:center'>
   
           <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
             <div class='flex w-full  justify-between items-center md:h-3/5 '>
@@ -57,7 +57,6 @@
            <a class='btn btn-primary' data-bs-toggle='collapse' href='#collapseExample" .  $value['order_id'] . "' role='button' aria-expanded='false' aria-controls='collapseExample'>
            <div class='flex'><p>Sprawdź chętnych do wykonania zlecenia</p> <p class='animate-bounce mx-2'>(1)</p> <p class='animate-ping mx-2 text-red-700'>!</p></div>
          </a>
-        
        </p>";
        $order_id = $value['order_id'];
       $sql_user_applied = "SELECT * from offers WHERE order_id='$order_id';";

@@ -24,12 +24,13 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <?php
     foreach ($json as $value) {
       echo "
 
    
-      <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
+      <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-96'>
         <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../../public/assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
         
         </div>
@@ -56,22 +57,26 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
            
           </div>
         </div>
+        <div class='flex items-center justify-center flex-column'>
         <form method='POST' action='../back/zmien_na_ok.php?id=". $value['order_id']."'"."'>
-        <button class='bg-green-400 hover:bg-green-500 border-1 font-bold text-white mx-2 border-green-500 ml-2'><p class='shadowek'>OK</p></button>
+        <button class='bg-green-400 hover:bg-green-500 w-20 h-20 border-1 font-bold text-white mx-2 border-green-500 ml-2 rounded'><p class='shadowek'>OK <i class='fas fa-check text-2xl mx-2'></i></p></button>
         <input type='hidden' value='ok' id='change_status'/>
         </form>
         <form method='POST' action='../back/ban-ogl.php?id=". $value['order_id']."'"."'>
-        <button class='bg-red-400 hover:bg-red-500 border-1 font-bold text-white mx-2 border-red-500 ml-2'><p class='shadowek'>ZBANUJ</p></button>
+        <button class='bg-red-400 hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
         </form>
         <form method='POST' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
-        <button class='bg-blue-400 hover:bg-blue-500 border-1 font-bold text-white mx-2 border-blue-500'><p class='shadowek'>POKAŻ</p></button>
+        <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
         </form>
+        </div>
+
+      
       </div>
       
 
   ";
   }
-       
     ?>
+
  </body>
  </html>

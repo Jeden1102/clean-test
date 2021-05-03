@@ -96,17 +96,19 @@ let btn = document.querySelector('#send-Btn');
 btn.disabled = true;
 
 
+// let checkVal = false;
+// checkboxes.forEach(element => {
+//     element.addEventListener('change',()=>{
+//         if(element.checked==true){
+//             checkVal = true;
+//         }else{
+//             console.log('nie ok')
 
-checkboxes.forEach(element => {
-    element.addEventListener('change',()=>{
-        if(element.checked==true){
-            console.log('ok')
-        }else{
-            console.log('nie ok')
+//         }
+//     })
+// });
 
-        }
-    })
-});
+
 title.addEventListener('keyup',()=>{
     checkValidation();
 });
@@ -141,6 +143,7 @@ data.addEventListener('change',()=>{
 //     checkValidation();
 // },100)
 function checkValidation(){
+    valthisform()
     if(title.value.length>0&&about.value.length>0&&imie.value.length>0&&password.value.length>0&&ulica.value.length>0&&nrdom.value.length>0&&miasto.value.length>0&&cena.value.length>0&&data.value.length>0){
         console.log('Okejka');
         btn.disabled = false;

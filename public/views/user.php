@@ -1,7 +1,7 @@
 <?php
 session_start();
 require '../../back/conn.php';
-if(empty($_GET)){
+
   $sql = "SELECT * from orders";
   $result = $conn->query($sql);
 
@@ -12,10 +12,10 @@ $sql = "SELECT * from user where mail = '$email'";
 $result = $conn->query($sql);
 
 $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
-//get all users
 
-$sql = "SELECT * from user;";
+//get all users
+$user = $_GET['id'];
+$sql = "SELECT * from user where user_id = $user;";
 $result = $conn->query($sql);
 
 $json3 = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -53,7 +53,6 @@ include '../components/header.php';
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
       <?php
       foreach($json3 as $value){
-        $link = "./user.php?id=" . $value['user_id'];
         echo '
         <div class="col mb-3 h-96">
         <div class="card h-full">
@@ -65,9 +64,9 @@ include '../components/header.php';
             <p class="text-muted font-size-sm">' .  $value['city'] . ' ' .  $value['street'] . '</p>
           </div>
           <div class="card-footer w-full flex items-center justify-center">
-          <a href="' .  $link . '" class="inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          Sprawdź
-          </a>
+            <a href="href="./user.php?id=' .  $value['user_id'] . '"" class="inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Sprawdź
+            </a>
           </div>
           <div class="flex justify-center items-center mt-2 bg-gray-700 py-2  w-full">
           <span class="fa fa-star  text-yellow-400"></span>

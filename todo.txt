@@ -3,7 +3,10 @@
 13) dodać widok gdzie się zglosiliśmy << ok + status czy zaakceptowany czy nie << DOMINIK bierze
 naprawić widok ogłoszeń zbanowaync aktywnyc etc
 
+front panel do poprawy cały wygląd, trzeba ogarnąć najlepiej jakiegoś gotowca template pod cały admin panel z zakładkami coś ala https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/landing/
 
+
+trzeba zastanowić się jak obsługujemy opinie, jak wyliczamy średnia opinie -> jak to na froncie pokazywać dynamicznie w postaci gwiazdek?
 STATUSY OGLOSZEN :
 
 0 - aktywne
