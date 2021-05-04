@@ -45,35 +45,90 @@ $json3 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php
 include '../components/header.php';
 ?>
-<div class="container mt-4">
-<div class="main-body">
+<div class="container mt-16 shadow card p-4">
+    <div class="main-body">
+    
 
+    
 
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
-      <?php
+          <?php
       foreach($json3 as $value){
         echo '
-        <div class="col mb-3 h-96">
-        <div class="card h-full">
-          <div class="w-full bg-red-200 h-20 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
-          <div class="card-body text-center">
-            <img src="../../uploads/user_avatars/' .  $value['image_url'] . '" style="width:100px;margin-top:-65px" alt="User" class="h-24 img-fluid img-thumbnail rounded-circle border-0 mb-3">
-            <h5 class="card-title">' .  $value['login'] . '</h5>
-            <p class="text-secondary mb-1">' .  $value['fname'] . ' ' .  $value['lname'] . '</p>
-            <p class="text-muted font-size-sm">' .  $value['city'] . ' ' .  $value['street'] . '</p>
+        <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="../../uploads/user_avatars/' .  $value['image_url'] . '" class="h-40" alt="Admin" class="rounded-circle" >
+                <div class="mt-3">
+                  <h4>' .  $value['fname'] . ' ' .  $value['lname'] . '</h4>
+                  <p class="text-muted font-size-sm">' .  $value['city'] . ' ' .  $value['street'] . '</p>
+                  <div class="flex justify-center items-center mt-2  py-2  w-full ">
+                  <span class="fa fa-star  text-yellow-400"></span>
+                  <span class="fa fa-star  text-yellow-400"></span>
+                  <span class="fa fa-star text-yellow-400"></span>
+                  <span class="fa fa-star text-yellow-400"></span>
+                  <span class="fa fa-star"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-footer w-full flex items-center justify-center">
-            <a href="href="./user.php?id=' .  $value['user_id'] . '"" class="inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Sprawdź
-            </a>
+          <div class="card  shadow mt-3">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <p class="font-bold">Imię</p><p>' .  $value['fname'] . '</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <p class="font-bold">Nazwisko</p><p>' .  $value['lname'] . '</p>
+
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <p class="font-bold">Miejscowość</p><p>' .  $value['city'] . '</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <p class="font-bold">Ulica</p><p>' .  $value['street'] . '</p>
+
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <p class="font-bold">Nazwa użytkownika</p><p>' .  $value['login'] . '</p>
+              </li>
+            </ul>
           </div>
-          <div class="flex justify-center items-center mt-2 bg-gray-700 py-2  w-full">
-          <span class="fa fa-star  text-yellow-400"></span>
-<span class="fa fa-star  text-yellow-400"></span>
-<span class="fa fa-star text-yellow-400"></span>
-<span class="fa fa-star text-yellow-400"></span>
-<span class="fa fa-star"></span>
+        </div>
+        <div class="col-md-8">
+          <div class="card shadow mb-3">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Ostatnie ogłoszenia użytkownika</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Ostatnie zgłoszenia użytkownika</button>
+          </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active p-2" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h2 class="text-center text-2xl font-light">Ogłoszenia użytkownika ' .  $value['login'] . ' </h2>
+          </div>
+          <div class="tab-pane fade p-2" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <h2 class="text-center text-2xl font-light">Zgłoszenia użytkownika ' .  $value['login'] . ' </h2>
+
+          </div>
+        </div>
+          </div>
+          <div class="col-md-12 card shadow">
+          <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Opinie o użytkowniku (3)
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first items accordion body.</div>
+          </div>
+        </div>
+          </div>
           </div>
         </div>
       </div>
@@ -82,10 +137,8 @@ include '../components/header.php';
       ?>
        
         </div>
-      </div>
     </div>
-    </div>
-   
+
  
 <?php
         include '../components/mobile-nav.php';

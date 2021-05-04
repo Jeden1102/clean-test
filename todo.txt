@@ -7,6 +7,13 @@ front panel do poprawy cały wygląd, trzeba ogarnąć najlepiej jakiegoś gotow
 
 
 trzeba zastanowić się jak obsługujemy opinie, jak wyliczamy średnia opinie -> jak to na froncie pokazywać dynamicznie w postaci gwiazdek?
+
+łatwe zadania :
+
+w admin panelu trzea pozmeinać wszystkei html->php wraz z nazwami plików
+w admin panelu poprzekopiowywać np. zawawrtość front_panel do jakiejś zakładki w nowym admin panelu
+w widoku usera docelowo mapka gdzie mieszka ? z API ?
+
 STATUSY OGLOSZEN :
 
 0 - aktywne

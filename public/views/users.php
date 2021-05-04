@@ -55,27 +55,32 @@ include '../components/header.php';
       foreach($json3 as $value){
         $link = "./user.php?id=" . $value['user_id'];
         echo '
-        <div class="col mb-3 h-96">
-        <div class="card h-full">
-          <div class="w-full bg-red-200 h-20 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
-          <div class="card-body text-center">
+        <div class="col mb-3 h-96 ">
+        <div class="card h-full ">
+          <div class="w-full  h-20 bg-gray-800"></div>
+          <div class="card-body text-center relative">
             <img src="../../uploads/user_avatars/' .  $value['image_url'] . '" style="width:100px;margin-top:-65px" alt="User" class="h-24 img-fluid img-thumbnail rounded-circle border-0 mb-3">
             <h5 class="card-title">' .  $value['login'] . '</h5>
             <p class="text-secondary mb-1">' .  $value['fname'] . ' ' .  $value['lname'] . '</p>
             <p class="text-muted font-size-sm">' .  $value['city'] . ' ' .  $value['street'] . '</p>
+            <div class="flex justify-center items-center mt-2  py-2  w-full absolute left-0 bottom-0">
+            <span class="fa fa-star  text-yellow-400"></span>
+            <span class="fa fa-star  text-yellow-400"></span>
+            <span class="fa fa-star text-yellow-400"></span>
+            <span class="fa fa-star text-yellow-400"></span>
+            <span class="fa fa-star"></span>
+            </div>
+            <div class="flex justify-center pb-3 text-grey-dark">
+
+          </div>
           </div>
           <div class="card-footer w-full flex items-center justify-center">
           <a href="' .  $link . '" class="inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Sprawdź
           </a>
+          
           </div>
-          <div class="flex justify-center items-center mt-2 bg-gray-700 py-2  w-full">
-          <span class="fa fa-star  text-yellow-400"></span>
-<span class="fa fa-star  text-yellow-400"></span>
-<span class="fa fa-star text-yellow-400"></span>
-<span class="fa fa-star text-yellow-400"></span>
-<span class="fa fa-star"></span>
-          </div>
+
         </div>
       </div>
         ';

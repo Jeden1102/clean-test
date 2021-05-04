@@ -143,7 +143,6 @@ data.addEventListener('change',()=>{
 //     checkValidation();
 // },100)
 function checkValidation(){
-    valthisform()
     if(title.value.length>0&&about.value.length>0&&imie.value.length>0&&password.value.length>0&&ulica.value.length>0&&nrdom.value.length>0&&miasto.value.length>0&&cena.value.length>0&&data.value.length>0){
         console.log('Okejka');
         btn.disabled = false;
