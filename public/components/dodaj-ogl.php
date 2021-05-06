@@ -1,6 +1,6 @@
 <div class="shadow  overflow-x-hidden">
 <div class="szeroki flex">
-<div class=" general-div">
+<div class="general-div ">
 <img class="mx-auto mt-4 h-52" src="../assets/img/dodaj_ogloszenie.png" alt="">
 <?php
 

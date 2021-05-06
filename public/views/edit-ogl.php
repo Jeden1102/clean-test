@@ -63,6 +63,8 @@ include '../components/header.php';
             <div class="md:flex w-full h-full pb-4">
 
            <?php 
+           $description =  strval($json[0]['description']);
+           $title = strval($json[0]["title"]);
            echo'
            <div class="h-96 md:w-1/2 md:mt-6 md:ml-4 shadow rounded flex justify-center items-center flex-column " >
            <form action="../../back/edit-ogl.php?id='.$id.'" method="POST">
@@ -101,13 +103,13 @@ include '../components/header.php';
                 <div class="flex">
                     <p class="my-2">Edytuj tytuł ogłoszenia</p>
                     <p class="font-bold my-2 ml-auto text-center">
-                        <input name="title" class="border-1 rounded-md p-1" value='.$json[0]["title"].'>
+                        <input name="title" type="text" class="border-1 rounded-md p-1" value="'.$title.'">
                     </p>
                 </div>
                 <div class="flex">
                     <p class="my-2">Edytuj opis</p>
                     <p class="font-bold my-2 ml-auto text-center">
-                        <input name="description" class="border-1 rounded-md p-1" value='.$json[0]["description"].'>
+                        <input name="description" type="text" class="border-1 rounded-md p-1" value="'.$description.'">
                     </p>
                 </div>
                 </div>

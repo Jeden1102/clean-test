@@ -12,24 +12,24 @@ require '../../back/conn.php';
 $email = $_SESSION['email'];
 
 //ogłoszenia aktywne
-$sql = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND (status=0 OR status=2)";
-$result = $conn->query($sql);
-@$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$sqlActiveOrders = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id,orders.chosen_user from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND (status=0 OR status=2)";
+$resultActiveOrders = $conn->query($sqlActiveOrders);
+@$jsonActiveOrders = mysqli_fetch_all($resultActiveOrders, MYSQLI_ASSOC);
 
 //ogloszenia zakończone
-$sql5 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=1";
-$result5 = $conn->query($sql5);
-@$json5 = mysqli_fetch_all($result5, MYSQLI_ASSOC);
+$sqlEndedOrders = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=1";
+$resultEndedOrders = $conn->query($sqlEndedOrders);
+@$jsonEndedOrders = mysqli_fetch_all($resultEndedOrders, MYSQLI_ASSOC);
 
 //ogłoszenia zbanowane
-$sql3 = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=3";
-$result3 = $conn->query($sql3);
-@$json3 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+$sqlBannedOrders = "SELECT orders.street,orders.city,order_price,title,orders.number,order_id from orders JOIN user ON user.user_id=orders.user_id where user.mail = '$email' AND status=3";
+$resultBannedOrders = $conn->query($sqlBannedOrders);
+@$jsonBannedOrders = mysqli_fetch_all($resultBannedOrders, MYSQLI_ASSOC);
 
 //twoje zgloszenia
-$sql4 = "SELECT orders.street,orders.city,order_price,title,orders.number,orders.order_id,user.user_id,chosen_user from offers JOIN user ON user.user_id=offers.user_id JOIN orders ON offers.order_id=orders.order_id where user.mail = '$email' AND (chosen_user=user.user_id OR chosen_user IS NULL);";
-$result4 = $conn->query($sql4);
-@$json4 = mysqli_fetch_all($result4, MYSQLI_ASSOC);
+$sqlOffers = "SELECT orders.street,orders.city,order_price,title,orders.number,orders.order_id,user.user_id,chosen_user from offers JOIN user ON user.user_id=offers.user_id JOIN orders ON offers.order_id=orders.order_id where user.mail = '$email';";
+$resultOffers = $conn->query($sqlOffers);
+@$jsonOffers = mysqli_fetch_all($resultOffers, MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -59,19 +59,16 @@ include '../components/header.php';
   <div class="alert alert-success hidden" role="alert">
         Ogłoszenie  zostało dodane !
     </div>
+    <div class="alert alert-primary hidden" role="alert">
+        Użytkownik wybrany pomyślnie !
+    </div>
     <!-- Edycja profilu -->
     <div class="tab-pane fade show active w-full mt-8 sm:mt-0 mx-auto" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
     <div class="w-full mx-auto  md:col-span-2">
         <div class="shadow overflow-hidden sm:rounded-md">
         <?php
-      include '../components/lista-ogl.php';
-
-
-        ?>
-        
-        
-         
-          
+          include '../components/lista-ogl.php';
+        ?>  
         </div>
     </div>
     </div>
@@ -136,6 +133,15 @@ if(isset($_GET["dodano"])){
   $script = file_get_contents('../scripts/showAlert.js');
   echo "<script>".$script."
   showAlert(alertSuccess,5000);
+  
+  </script>";
+}
+if(isset($_GET["userChosed"])){
+  ?>
+  <?php
+  $script = file_get_contents('../scripts/showAlert.js');
+  echo "<script>".$script."
+  showAlert(alertPrimary,5000);
   
   </script>";
 }

@@ -1,10 +1,10 @@
 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <?php
-    if(empty($json4)){
+    if(empty($jsonOffers)){
 
-    echo '<h2 class="text-center text-2xl my-4">Nie zgłosiłełeś się do wykonywania żadnych usług</h2>';
+    echo '<h2 class="text-center text-2xl my-4">Nie zgłosiłeś się do wykonywania żadnych usług</h2>';
     }else{
-      foreach ($json4 as $value) {
+      foreach ($jsonOffers as $value) {
         echo "
         <a href='../views/ogloszenie.php?id=" .  $value['order_id'] . "' >
     
@@ -23,7 +23,7 @@
              " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
             </div>
             <div class='font-light mt-2 md:ml-4'>";
-            if($json4[0]['user_id']==$json4[0]['chosen_user']){
+            if($value['user_id']==$value['chosen_user']){
               echo "Status : Zostałeś wybrany!
             
               </div>
@@ -31,8 +31,16 @@
              </div>
            </div>
            </a> ";
-            }else{
+            }else if(is_null($value['chosen_user'])){
               echo "Status : Zleceniodawca jeszcze nie wybrał wykonawcy
+            
+              </div>
+               
+             </div>
+           </div>
+           </a> ";
+            }else if($value['user_id']!=$value['chosen_user']){
+              echo "Status : Zleceniodawca wybrał kogoś innego
             
               </div>
                

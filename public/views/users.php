@@ -6,7 +6,7 @@ if(empty($_GET)){
   $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$email = $_SESSION['email'];
+@$email = $_SESSION['email'];
 
 $sql = "SELECT * from user where mail = '$email'";
 $result = $conn->query($sql);
@@ -15,7 +15,7 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 //get all users
 
-$sql = "SELECT * from user;";
+$sql = "SELECT * from user where active = 1;";
 $result = $conn->query($sql);
 
 $json3 = mysqli_fetch_all($result, MYSQLI_ASSOC);

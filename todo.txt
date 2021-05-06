@@ -1,17 +1,23 @@
+TESTY
+funkcje systemowe (5,6,7,8,9,10)
+użytkownik panel (12,13,19)
+strona internetowa (21,22,23,24,25,26,28)
+admin ()
 
-12) sprawdzenie czy wszystko ok + jeden check musi być zaznaczony << DOMINIK ale to potem na cihllu
-13) dodać widok gdzie się zglosiliśmy << ok + status czy zaakceptowany czy nie << DOMINIK bierze
-naprawić widok ogłoszeń zbanowaync aktywnyc etc
+DO ZROBIENIA
+14,15,16,17,18,27,30,31,32,33
 
-front panel do poprawy cały wygląd, trzeba ogarnąć najlepiej jakiegoś gotowca template pod cały admin panel z zakładkami coś ala https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/landing/
-
-
-trzeba zastanowić się jak obsługujemy opinie, jak wyliczamy średnia opinie -> jak to na froncie pokazywać dynamicznie w postaci gwiazdek?
+PRIORYTETY POPRAWIĆ WIDOK WSZYSTKIEGO
+14,18,17
+14-button wyboru użytkownika -> wtedy 17 jest ok  + i wchodzenie na jego profil
+18-poprawić widok <--PRIORYTET PRIORYTETÓW
 
 łatwe zadania :
 
 w admin panelu trzea pozmeinać wszystkei html->php wraz z nazwami plików
 w admin panelu poprzekopiowywać np. zawawrtość front_panel do jakiejś zakładki w nowym admin panelu
+
+to juz nie łatwe :
 w widoku usera docelowo mapka gdzie mieszka ? z API ?
 
 STATUSY OGLOSZEN :
@@ -19,4 +25,4 @@ STATUSY OGLOSZEN :
 0 - aktywne
 1 - zakończończon - przez usera
 2 - zgloszone
-3- zbanowane
+3 - zbanowane
