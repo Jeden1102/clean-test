@@ -2,7 +2,7 @@
 session_start();
 require './back/conn.php';
 
-$sql = "SELECT * from orders order by order_id desc LIMIT 7";
+$sql = "SELECT * from orders WHERE status IN(0,2) AND date>CURRENT_DATE order by order_id desc LIMIT 7";
 $result = $conn->query($sql);
 
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);

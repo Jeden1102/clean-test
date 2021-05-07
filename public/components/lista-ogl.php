@@ -69,9 +69,9 @@
                     $sql_user_applied = "SELECT * from offers JOIN user ON offers.user_id=user.user_id WHERE order_id='$order_id';";
                     $result_user_applied = $conn->query($sql_user_applied);
                     $json_user_applied = mysqli_fetch_all($result_user_applied, MYSQLI_ASSOC);
-                    $sql = "SELECT * from offers WHERE order_id='$order_id';";
+                    $sql = "SELECT count(*) as 'licz' from offers WHERE order_id='$order_id';";
                     $howManyOffers = $conn->query($sql);
-                    $howManyOffersJson = mysqli_fetch_all($result_user_applied, MYSQLI_ASSOC);
+                    $howManyOffersJson = mysqli_fetch_all($howManyOffers, MYSQLI_ASSOC);
                     if(empty($json_user_applied)){
                         echo '
                         <div class="alert alert-danger w-5/6" role="alert">
@@ -106,7 +106,12 @@
                           }
                        
                       }else{
-                        echo "                        
+                        $id= $value['chosen_user'];
+                        $sql = "SELECT * from user where user_id = $id";
+                        $userInfo = $conn->query($sql);
+                        $userInfoJson = mysqli_fetch_all($userInfo, MYSQLI_ASSOC);
+                        echo "                 
+                        Wybrałeś użytkownika <a href='../views/user.php?id=$id'>".  $userInfoJson[0]['fname'] . "  ".  $userInfoJson[0]['lname'] . "</a>       
                         <form method='POST' action='../../back/end_order.php'>
                         <button name='chosenUser' class='ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' >Zakończ i oceń</button>
                         <input type='hidden' name='chose_order_id' value='". $value['order_id'] ."'/>

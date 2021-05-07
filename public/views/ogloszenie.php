@@ -42,13 +42,13 @@ include '../components/header.php';
            
            <!-- ładowane dynamicznie -->
            <div class="alert alert-success hidden" role="alert">
-        Aplikacja przebiegła pomyślnie, <a class="text-green-600 cursor-pointer">zobacz status swoich zgłoszeń</a> !
+        Aplikacja przebiegła pomyślnie, <a href="./ogloszenia-uzyt.php" class="text-green-600 cursor-pointer">zobacz status swoich zgłoszeń</a> !
     </div>
     <div class="alert alert-warning hidden" role="alert">
         Nie możesz zgłosić się do swojej oferty !
     </div>
     <div class="alert alert-danger hidden" role="alert">
-    Już zgłosiłeś się do tej oferty <a class="text-green-600 cursor-pointer">zobacz status swoich zgłoszeń</a> !
+    Już zgłosiłeś się do tej oferty <a href="./ogloszenia-uzyt.php" class="text-green-600 cursor-pointer">zobacz status swoich zgłoszeń</a> !
     </div>
     <div class="alert alert-primary hidden" role="alert">
     Ogłoszenie zostało zgłoszone.
@@ -136,9 +136,9 @@ include '../components/header.php';
 
                 <?php
 
-                    $sql = "SELECT * from orders;";
+                    $sql = "SELECT * from orders WHERE status IN(0,2) AND date>CURRENT_DATE;";
                     $result = $conn->query($sql);
-
+                    echo $sql;
                     $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     foreach ($json as $value) {
@@ -149,7 +149,7 @@ include '../components/header.php';
                         <a href="./ogloszenie.php?id=' .  $value['order_id'] . '" class="w-full h-full">
                     <img class="w-full h-5/6"  src="../assets/img/sp1.jpg" alt="">
                     <div class="flex items-center h-1/6">
-                        <h2 class="ml-2">Zlecę mycie podłogi</h2>
+                        <h2 class="ml-2">' .  $value['title'] . '</h2>
                         <p class="ml-2 font-bold">    ' .  $value['order_price'] . 'zł</p>
                         <button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Sprawdź
