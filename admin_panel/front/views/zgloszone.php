@@ -1,3 +1,12 @@
+<?php
+
+//ściąganie z bazy danych
+require "../../back/conn.php";
+$sql = "SELECT orders.*,notification.user_id_from FROM orders JOIN notification ON orders.order_id=notification.order_id WHERE orders.status=2";
+$result = $conn->query($sql);
+$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,44 +32,9 @@
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-        <div class="p-6">
-            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
-            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                <i class="fas fa-plus mr-3"></i> New Report
-            </button>
-        </div>
-        <nav class="text-white text-base font-semibold pt-3">
-            <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-tachometer-alt mr-3"></i>
-                Dashboard
-            </a>
-            <a href="blank.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                Blank Page
-            </a>
-            <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-table mr-3"></i>
-                Tables
-            </a>
-            <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-align-left mr-3"></i>
-                Forms
-            </a>
-            <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-tablet-alt mr-3"></i>
-                Tabbed Content
-            </a>
-            <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendar
-            </a>
-        </nav>
-        <a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
-            <i class="fas fa-arrow-circle-up mr-3"></i>
-            Upgrade to Pro!
-        </a>
-    </aside>
+<?php
+   include '../components/left-nav.php';
+   ?>
 
     <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
@@ -95,11 +69,11 @@
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="blank.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-sticky-note mr-3"></i>
                     Blank Page
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="tables.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
                     <i class="fas fa-table mr-3"></i>
                     Tables
                 </a>
@@ -138,9 +112,59 @@
     
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Blank Page</h1>
+            <?php
+    foreach ($json as $value) {
+      echo "
 
-                <!-- Content goes here! 😁 -->
+   
+      <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-96'>
+        <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../../public/assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
+        
+        </div>
+        <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
+          <div class='flex w-full  justify-between items-center md:h-3/5 '>
+          <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
+          <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
+          
+          </div>
+         
+          <div class='font-light mt-2 md:ml-4'>
+           " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
+           <p>". $value['fname'] . " ". $value['lname']."</p>
+           <p>". $value['description']."</p>
+           <p>". $value['car_clean']."</p>
+           <p>". $value['window_clean']."</p>
+           <p>". $value['home_clean']."</p>
+           <p>". $value['order_price']."</p>
+           <p>". $value['date']."</p>
+           <p>". $value['status']."</p>
+           <h1>". $value['order_id']."<h1>
+           
+
+           
+          </div>
+        </div>
+        <div class='flex items-center justify-center flex-column'>
+        <form method='POST' action='../back/zmien_na_ok.php?id=". $value['order_id']."'"."'>
+        <button class='bg-green-400 hover:bg-green-500 w-20 h-20 border-1 font-bold text-white mx-2 border-green-500 ml-2 rounded'><p class='shadowek'>OK <i class='fas fa-check text-2xl mx-2'></i></p></button>
+        <input type='hidden' value='ok' id='change_status'/>
+        </form>
+        <form method='POST' action='../back/ban-ogl.php?id=". $value['order_id']."'"."'>
+        <button class='bg-red-400 hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
+        </form>
+        <form method='POST' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
+        <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
+        </form>
+        </div>
+
+      
+      </div>
+      
+
+  ";
+  }
+    ?>
+
             </main>
     
             <footer class="w-full bg-white text-right p-4">
