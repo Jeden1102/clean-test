@@ -9,7 +9,7 @@
 
  </div>
 
- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+ <ul class="nav nav-pills mb-3 mx-auto w-40 lg:w-max" id="pills-tab" role="tablist">
    <li class="nav-item" role="presentation">
      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Ogłoszenia aktywne</button>
    </li>
@@ -36,7 +36,7 @@
                 $json_user_applied = mysqli_fetch_all($result_user_applied, MYSQLI_ASSOC);
                 echo "
              
-                <div class=' w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full'>
+                <div class=' w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full card'>
                   <!--ZDJĘCIE-->
                   <div class='md:w-1/3  w-full mx-auto rounded  h-60' style='background-image:url($img);background-size:cover;background-position:center'>
          

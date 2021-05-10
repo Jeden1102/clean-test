@@ -110,60 +110,54 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </button> -->
         </header>
     
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <div class="w-full h-screen overflow-auto border-t flex flex-col">
             <main class="w-full flex-grow p-6">
+            <table class='min-w-full bg-white'>
+      <thead class='bg-gray-800 text-white'>
+          <tr>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm'>Dane osobowe</th>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm'>Status</th>
+              <th class='w-20  text-left py-3 px-4 uppercase font-semibold text-sm'>ID ogłoszenia</th>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm'>Akcja</th>
+          </tr>
+      </thead>
+      <tbody class='text-gray-700'>
             <?php
     foreach ($json as $value) {
       echo "
 
-   
-      <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-96'>
-        <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../../public/assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
-        
-        </div>
-        <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
-          <div class='flex w-full  justify-between items-center md:h-3/5 '>
-          <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
-          <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
-          
-          </div>
-         
-          <div class='font-light mt-2 md:ml-4'>
-           " .  $value['city'] . " ," .  $value['street'] . " " .  $value['number'] . "
-           <p>". $value['fname'] . " ". $value['lname']."</p>
-           <p>". $value['description']."</p>
-           <p>". $value['car_clean']."</p>
-           <p>". $value['window_clean']."</p>
-           <p>". $value['home_clean']."</p>
-           <p>". $value['order_price']."</p>
-           <p>". $value['date']."</p>
-           <p>". $value['status']."</p>
-           <h1>". $value['order_id']."<h1>
-           
+          <tr>
+              <td class='w-20 text-left py-3 px-4'>". $value['fname'] . " ". $value['lname']."</td>
+              <td class='w-20  text-left py-3 px-4'>". $value['status']."</td>
+              <td class='w-20 text-left py-3 px-4'><a class='hover:text-blue-500' >". $value['order_id']."</td>
+              <td class='w-20 text-left py-3 px-4'><a class='hover:text-blue-500' >
+              <div class='flex items-center justify-center flex-column'>
+              <form method='POST' action='../back/zmien_na_ok.php?id=". $value['order_id']."'"."'>
+              <button class='bg-green-400 hover:bg-green-500 w-20 h-20 border-1 font-bold text-white mx-2 border-green-500 ml-2 rounded'><p class='shadowek'>OK <i class='fas fa-check text-2xl mx-2'></i></p></button>
+              <input type='hidden' value='ok' id='change_status'/>
+              </form>
+              <form method='POST' action='../back/ban-ogl.php?id=". $value['order_id']."'"."'>
+              <button class='bg-red-400 hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
+              </form>
+              <form method='POST' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
+              <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
+              </form>
+              </div>
+              </td>
+          </tr>
 
-           
-          </div>
-        </div>
-        <div class='flex items-center justify-center flex-column'>
-        <form method='POST' action='../back/zmien_na_ok.php?id=". $value['order_id']."'"."'>
-        <button class='bg-green-400 hover:bg-green-500 w-20 h-20 border-1 font-bold text-white mx-2 border-green-500 ml-2 rounded'><p class='shadowek'>OK <i class='fas fa-check text-2xl mx-2'></i></p></button>
-        <input type='hidden' value='ok' id='change_status'/>
-        </form>
-        <form method='POST' action='../back/ban-ogl.php?id=". $value['order_id']."'"."'>
-        <button class='bg-red-400 hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
-        </form>
-        <form method='POST' action ='../../public/views/ogloszenie.php?id=". $value['order_id']."'".">
-        <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
-        </form>
-        </div>
-
-      
-      </div>
       
 
   ";
   }
     ?>
+    
+    </tbody>
+  </table>
+   
+
+      
+      </div>
 
             </main>
     
