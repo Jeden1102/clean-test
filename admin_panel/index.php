@@ -59,9 +59,36 @@
           </span>
           Zaloguj się
         </button>
+        <div class="alert alert-danger not-email mt-4 hidden" role="alert">
+                Administrator o podanym loginie nie istnieje
+            </div>
+            <div class="alert alert-warning hidden mt-4" role="alert">
+                Błędne dane logowania!
+            </div>
       </div>
     </form>
   </div>
 </div>
 </body>
 </html>
+<?php
+    if(isset($_GET["loginNot"])){
+        ?>
+        <?php
+        $script = file_get_contents('../public/scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertDanger,7000);
+        
+        </script>";
+    }
+    if(isset($_GET["zleDane"])){
+        ?>
+        <?php
+
+        $script = file_get_contents('../public/scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertWarning,7000);
+        
+        </script>";
+    }
+?>
