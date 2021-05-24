@@ -19,6 +19,9 @@ $sql = "SELECT * from user where active = 1;";
 $result = $conn->query($sql);
 
 $json3 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+//scores zmiana
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +67,21 @@ include '../components/header.php';
             <p class="text-secondary mb-1">' .  $value['fname'] . ' ' .  $value['lname'] . '</p>
             <p class="text-muted font-size-sm">' .  $value['city'] . ' ' .  $value['street'] . '</p>
             <div class="flex justify-center items-center mt-2  py-2  w-full absolute left-0 bottom-0">
-            <span class="fa fa-star  text-yellow-400"></span>
-            <span class="fa fa-star  text-yellow-400"></span>
-            <span class="fa fa-star text-yellow-400"></span>
-            <span class="fa fa-star text-yellow-400"></span>
-            <span class="fa fa-star"></span>
-            </div>
+            ';
+
+            $userid = $value['user_id'];
+            $sql = "SELECT ROUND(AVG(score),1) AS 'avgScore', to_user_id from notes WHERE to_user_id = $userid";
+            $result = $conn->query($sql);
+            $jsonUserAVGScore = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            if(isset($jsonUserAVGScore[0]['avgScore'])){
+            echo $jsonUserAVGScore[0]['avgScore'] ."/5
+            <span class='fa fa-star text-yellow-400 ml-2'></span>
+            ";
+            }else{
+              echo "<p>Brak ocen użytkownika</p>";
+            }
+            echo '</div>
             <div class="flex justify-center pb-3 text-grey-dark">
 
           </div>

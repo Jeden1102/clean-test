@@ -9,7 +9,7 @@
 
  </div>
 
- <ul class="nav nav-pills mb-3 mx-auto w-40 lg:w-max" id="pills-tab" role="tablist">
+ <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
    <li class="nav-item" role="presentation">
      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Ogłoszenia aktywne</button>
    </li>
@@ -36,7 +36,7 @@
                 $json_user_applied = mysqli_fetch_all($result_user_applied, MYSQLI_ASSOC);
                 echo "
              
-                <div class=' w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full card'>
+                <div class=' w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full'>
                   <!--ZDJĘCIE-->
                   <div class='md:w-1/3  w-full mx-auto rounded  h-60' style='background-image:url($img);background-size:cover;background-position:center'>
          
@@ -72,6 +72,7 @@
                     $sql = "SELECT count(*) as 'licz' from offers WHERE order_id='$order_id';";
                     $howManyOffers = $conn->query($sql);
                     $howManyOffersJson = mysqli_fetch_all($howManyOffers, MYSQLI_ASSOC);
+                    
                     if(empty($json_user_applied)){
                         echo '
                         <div class="alert alert-danger w-5/6" role="alert">
@@ -110,13 +111,19 @@
                         $sql = "SELECT * from user where user_id = $id";
                         $userInfo = $conn->query($sql);
                         $userInfoJson = mysqli_fetch_all($userInfo, MYSQLI_ASSOC);
+                        //zmiany
                         echo "                 
-                        Wybrałeś użytkownika <a href='../views/user.php?id=$id'>".  $userInfoJson[0]['fname'] . "  ".  $userInfoJson[0]['lname'] . "</a>       
+                        <p class='text-center'>Wybrałeś użytkownika <a href='../views/user.php?id=$id'>".  $userInfoJson[0]['fname'] . "  ".  $userInfoJson[0]['lname'] . "</a></p>       
                         <form method='POST' action='../../back/end_order.php'>
-                        <button name='chosenUser' class='ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' >Zakończ i oceń</button>
                         <input type='hidden' name='chose_order_id' value='". $value['order_id'] ."'/>
-                        <input type='text' name='description' placeholder='Oceń użytkownika'/>
-                        <input type='number' name='score' placeholder='Ocena'/>
+                        <div class='flex flex-column my-2 mx-2'>
+                        <textarea class='form-control'  type='text' name='description' maxlength='255' placeholder='Oceń użytkownika'></textarea>
+                        <small id='emailHelp' class='form-text text-muted'>Ocena max. 255 znaków.</small>
+                        <input class='form-control my-2' step='1' type='number' min='1' max='5' name='score' placeholder='Ocena (1-5)'/>
+                        <button name='chosenUser' class='ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' >Zakończ i oceń</button>
+
+                        </div>
+                        
                         <input type='hidden' name='from_user' value='".$_SESSION['email']."'/>
                         <input type='hidden' name='to_user' value='".  $value['chosen_user'] ."'/>
                         <input type='hidden' name='order_id' value='".  $value['order_id'] ."'/>

@@ -8,14 +8,11 @@ DO ZROBIENIA
 14,15,16,17,18,27,30,31,32,33
 
 PRIORYTETY POPRAWIĆ WIDOK WSZYSTKIEGO
-14,18,17
-14-button wyboru użytkownika -> wtedy 17 jest ok  + i wchodzenie na jego profil
-18-poprawić widok <--PRIORYTET PRIORYTETÓW
+15 -> ostatnie zlecenia to to co robił użytkownik
 
 łatwe zadania :
 
-w admin panelu trzea pozmeinać wszystkei html->php wraz z nazwami plików
-w admin panelu poprzekopiowywać np. zawawrtość front_panel do jakiejś zakładki w nowym admin panelu
+
 
 to juz nie łatwe :
 w widoku usera docelowo mapka gdzie mieszka ? z API ?

@@ -1,3 +1,12 @@
+<?php
+
+//ściąganie z bazy danych
+require "../../back/conn.php";
+$sql = "SELECT to_user_id,ROUND(AVG(score),1) as 'score' ,user.login FROM notes JOIN user ON user.user_id=notes.to_user_id GROUP BY to_user_id ORDER BY AVG(score) ASC LIMIT 10;";
+$result = $conn->query($sql);
+$json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +15,16 @@
     <title>Tailwind Admin Template</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
+    <script src="https://kit.fontawesome.com/193f3f2978.js" crossorigin="anonymous"></script>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<link href="./public/styles.css" rel="stylesheet"/>
+<link href="./public/additionalcss.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <!-- Tailwind -->
     <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <style>
@@ -22,7 +40,8 @@
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
-
+<?php
+?>
 <?php
    include '../components/left-nav.php';
    ?>
@@ -60,11 +79,11 @@
                     <i class="fas fa-tachometer-alt mr-3"></i>
                     Dashboard
                 </a>
-                <a href="blank.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-sticky-note mr-3"></i>
                     Blank Page
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                <a href="tables.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
                     <i class="fas fa-table mr-3"></i>
                     Tables
                 </a>
@@ -101,11 +120,59 @@
             </button> -->
         </header>
     
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        <div class="w-full h-screen overflow-auto border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Blank Page</h1>
+            <div class="alert alert-success not-email hidden" role="alert">
+                Ogłoszenie oznaczono jako "OK"
+            </div>
+            <div class="alert alert-warning hidden" role="alert">
+                Ogłoszenie zostało zbanowane
+            </div>
+            <table class='min-w-full bg-white'>
+      <thead class='bg-gray-800 text-white'>
+          <tr>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm'>Dane osobowe</th>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm'>Ocena</th>
+              <th class='w-20 text-left py-3 px-4 uppercase font-semibold text-sm text-center'>Akcja</th>
+          </tr>
+      </thead>
+      <tbody class='text-gray-700'>
+            <?php
+    foreach ($json as $value) {
 
-                <!-- Content goes here! 😁 -->
+      echo "
+
+          <tr>
+              <td class='w-20 text-left py-3 px-4'>". $value['login'] ."</td>
+              <td class='w-20  text-left py-3 px-4'>". $value['score']."  </td>
+              <td class='w-20 text-left py-3 px-4'><a class='hover:text-blue-500' >
+              <div class='flex items-center justify-center flex-column text-center'>
+              <form method='POST' action ='../../back/ban-uz.php?id=". $value['to_user_id']."'".">
+              <input name='date' type='date' class='form-control mt-4' id='exampleFormControlInput1' >
+              <button  class='bg-red-400 show-reset-btn hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
+
+                </form>
+              <form method='POST' action ='../../../public/views/user.php?id=". $value['to_user_id']."'".">
+              <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
+              </form>
+              </div>
+              </td>
+          </tr>
+
+
+      
+
+  ";
+  }
+    ?>
+    
+    </tbody>
+  </table>
+   
+
+      
+      </div>
+
             </main>
     
             <footer class="w-full bg-white text-right p-4">
@@ -120,4 +187,26 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
+<?php
+    if(isset($_GET["oglOk"])){
+        ?>
+        <?php
+        $script = file_get_contents('../../../public/scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertSuccess,7000);
+        
+        </script>";
+    }
+    if(isset($_GET["oglBan"])){
+        ?>
+        <?php
+        $script = file_get_contents('../../../public/scripts/showAlert.js');
+        echo "<script>".$script."
+        showAlert(alertWarning,7000);
+        
+        </script>";
+    }
+
+
+?>
 </html>

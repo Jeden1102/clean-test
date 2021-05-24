@@ -34,7 +34,7 @@ include '../components/header.php';
         Do tego adresu e-mail nie jest przypisane żadne konto !
     </div>
     <div class="alert alert-primary hidden" role="alert">
-        Błędne hasło lub konto nieaktywowane !
+        Błędne hasło,konto nieaktywowane lub użytkownik tymczasowo zbanowany !
     </div>
     <div class="alert alert-primary hidden forgot-pwd" role="alert">
         Na Twoją skrzynkę e-mail wysłana została wiadomość dzięki której będziesz mógł ustawić nowe hasło!
