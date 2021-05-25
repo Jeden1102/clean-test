@@ -1,6 +1,11 @@
 <?php
 include '../components/forgotpwd.php';
 ?>
+<?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
 <div class="w-4/5 mx-auto mb-20 lg:flex w-view items-center">
 <img class="lg:w-1/2" src ="../../public/assets/img/login.png"   alt="test">
 

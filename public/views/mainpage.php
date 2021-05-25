@@ -12,7 +12,11 @@
     <link href="../additionalcss.css" rel="stylesheet"/>
 </head>
 <body class="w-screen">
-
+<?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
     <header class="w-screen h-28 bg-white flex border-b-2 border-black-400">
         <div class="w-full h-full flex justify-center items-center">
         <img src="../assets/img/logo.png" class="h-full m-2 flex justify-center" alt="">

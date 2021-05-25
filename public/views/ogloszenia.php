@@ -33,6 +33,11 @@ require '../../back/conn.php';
   </script>
 <body class="overflow-x-hidden">
 <?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
+<?php
 include '../components/header.php';
 ?>
     <div class="lg:flex">
@@ -126,65 +131,13 @@ include '../components/header.php';
    
       </div>
       <div class="ogloszenia mb-12">
-      
+      <div class="alert alert-success hidden w-11/12 mx-auto" role="alert">
+        Ogłoszenie zostało zbanowane
+    </div>
       </div>
-      <?php
-      
-        // if(empty($json)){
 
-        //   echo '<h2 class="text-center text-2xl">Brak dostępnych wyszukiwań</h2>';
-        // }else{
-        //   foreach ($json as $value) {
-          
-        //     echo "
-        //     <a href='./ogloszenie.php?id=".$value['order_id'] . "' >
-        
-       
-        //     <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52'>
-        //       <div class='md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3' style='background-image:url( " . "../assets/img/sp1.jpg" . " );background-size:cover;background-position:center'>
-      
-        //       </div>
-        //       <div class='mt-4 md:w-2/3 h-1/3 md:h-full'>
-        //         <div class='flex w-full  justify-between items-center md:h-3/5 '>
-        //         <h2  class='ml-4 text-2xl md:text-3xl'>" .  $value['title'] . "</h2>
-        //         <p class='font-bold mr-4 md:text-2xl'> " .  $value['order_price'] . "zł</p>
-        //         </div>
-               
-        //         <div class='font-light mt-2 md:ml-4'>
-        //          " .  $value['city'] . " ," .  $value['street'] . "" .  $value['number'] . "
-        //         </div>
-        //       </div>
-                  
-        //     </div>
-        //     </a> 
-      
-        //     ";
-        //   }
-        // }
 
-      ?>
-      <!-- ogloszenie -->
 
-      <!-- <a href="" class="my-2">
-      
-     
-      <div class="shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-72 md:h-52">
-        <div class="md:w-1/3 md:h-full w-full mx-auto rounded  h-2/3" style="background-image:url('../assets/img/sp2.jpg');background-size:cover;background-position:center">
-
-        </div>
-        <div class="mt-4 md:w-2/3 h-1/3 md:h-full">
-          <div class="flex w-full  justify-between items-center md:h-3/5 ">
-          <h2  class="ml-4 text-2xl md:text-3xl">Zlecę sprzatanie domu</h2>
-          <p class="font-bold mr-4 md:text-2xl">199,99zł</p>
-          </div>
-         
-          <div class="font-light mt-2 md:ml-4">
-            Opole, 14 Maja 47-180
-          </div>
-        </div>
-            
-      </div>
-      </a>  -->
     </div>
     </div>
    
@@ -205,3 +158,14 @@ include '../components/header.php';
 
 
 </script>
+<?php
+    if(isset($_GET["oglBan"])){
+      ?>
+      <?php
+      $script = file_get_contents('../scripts/showAlert.js');
+      echo "<script>".$script."
+      showAlert(alertSuccess,8000);
+      
+      </script>";
+  }
+?>

@@ -28,6 +28,8 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <link href="./public/styles.css" rel="stylesheet"/>
     <link href="./public/additionalcss.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,6 +37,23 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 
 <body >
+<?php
+if(isset($_SESSION['admin'])){
+echo '
+<div class="alert alert-danger fixed bottom-4 right-4 z-10" role="alert">
+<button type="button" class="" data-toggle="tooltip" data-placement="top" title="Jesteś zalogowany jako adminstartor - po przejściu w pojedyncze ogłoszenie, masz możliwość zbanowania ogłoszenia.">
+Sesja administartora
+</button>
+<i class="fas fa-info"></i>
+<a href="./back/logout.php" class="btn btn-danger ml-4">Wyloguj</a>
+<a href="./admin_panel/front/views/panel.php" class="btn btn-primary ml-4">Powrót do panelu</a>
+
+</div>
+';
+}
+?>
+
+
 
 <nav class="bg-white p-0 m-0 ">
   <div class="w-full">
@@ -480,4 +499,9 @@ if(isset($_GET["accDeleted"])){
 		}
 	} ).mount();
 } );
+</script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>

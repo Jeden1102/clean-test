@@ -47,6 +47,11 @@ $resultOffers = $conn->query($sqlOffers);
 </head>
 <body class="overflow-x-hidden">
 <?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
+<?php
 include '../components/header.php';
 ?>
 <div class="align-items-start mt-8 sm:flex">

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +15,11 @@
     <link href="../additionalcss.css" rel="stylesheet"/>
 </head>
 <body>
+<?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
 <?php
 include '../components/header.php';
 

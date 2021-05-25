@@ -38,6 +38,11 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php
 include '../components/header.php';
 ?>
+<?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
         <div class="w-11/12 card mx-auto shadow h-full mt-4  ">
            
            <!-- ładowane dynamicznie -->
@@ -98,8 +103,16 @@ include '../components/header.php';
                     <!-- jesli zalogowany -->
 
                     <?php
+                    if(isset($_SESSION['admin'])){
+                        echo '<div>
 
-                    if(isset($_SESSION['email'])){
+                        <a href="../../admin_panel/back/ban-ogl-front.php?id='.$id.'" class=" mt-4 w-40 ml-4  text-center inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Zbanuj ogłoszenie
+                        </a>
+                        </div>
+                        ';
+                    }
+                    else if(isset($_SESSION['email'])){
                     echo '<div>
                     <a href="../../back/user_applies.php?order_id='.$id.'"><button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Aplikuj

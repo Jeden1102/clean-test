@@ -49,6 +49,11 @@ $jsonOpionionsCount = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </script>
 <body class="overflow-x-hidden">
 <?php
+if(isset($_SESSION['admin'])){
+include '../components/admins-view.php';
+}
+?>
+<?php
 include '../components/header.php';
 ?>
 <div class="container mt-16 shadow card p-4">

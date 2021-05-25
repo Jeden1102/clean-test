@@ -1,3 +1,9 @@
+<?php
+session_start();
+if($_SESSION['admin'] != "true"){
+    header("location:../index.php");
+}
+?>
 <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="panel.php" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Click&Clean<p class="font-light text-sm text-center">Admin panel<p></a>

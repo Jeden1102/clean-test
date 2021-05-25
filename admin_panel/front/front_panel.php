@@ -5,6 +5,7 @@ require "../../back/conn.php";
 $sql = "SELECT orders.*,notification.user_id_from FROM orders JOIN notification ON orders.order_id=notification.order_id WHERE orders.status=2";
 $result = $conn->query($sql);
 $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
  ?>
 
  <!DOCTYPE html>
