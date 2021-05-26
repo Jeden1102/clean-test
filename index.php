@@ -36,7 +36,7 @@ $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 
-<body >
+<body class="overflow-x-hidden" >
 <?php
 if(isset($_SESSION['admin'])){
 echo '
@@ -67,9 +67,9 @@ Sesja administartora
         <div class="hidden md:block sm:ml-6 my-auto">
           <div class="flex space-x-4 items-center">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="" class="bg-blue-500 text-white px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
-            <a href="./public/views/ogloszenia.php" class="text-gray-700 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
-            <a href="./public/views/users.php" class="text-gray-700 hover:bg-blue-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
+            <a href="" class="nav-link   px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
+            <a href="./public/views/ogloszenia.php" class="nav-link text-gray-700  px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
+            <a href="./public/views/users.php" class=" nav-link text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>
       </div>
@@ -125,8 +125,23 @@ Sesja administartora
 </div>
 
 <div class="w-full h-screen">
+
+
     <div class="h-3/5  blur relative flex items-center justify-center"  style="background-image:url('./public/assets/img/wave2.svg');background-size:cover;background-position:center">
-      <div class="w-full h-4/5  absolute ">
+
+      <div class="w-full h-4/5  absolute">
+      <div id="background-wrap">
+        <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+      </div>
         <h1 class="text-center  text-black  font-bold text-5xl mt-8 head-witamy">Click<span class="text-green-400">&</span>Clean</h1>
         <p class="text-center text-black mt-8 font-light px-2  sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!Platforma łącząca ludzi posiadający srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
         <div class="flex w-full items-center justify-center mt-4 ">
@@ -134,19 +149,19 @@ Sesja administartora
         if(isset($_SESSION['email'])){
           echo '
 
-      <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia-uzyt.php">Zostań wykonwacą</a>
+      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia-uzyt.php">Zostań wykonwacą</a>
           ';
         }else{
           echo '
 
-      <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/login-register.php">Zostań wykonwacą</a>
+      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/login-register.php">Zostań wykonwacą</a>
           ';
         }
         ?>
         <p class="text-white sm:ml-4">LUB</p>
 
 
-        <a class="ml-4 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia.php">Szukaj ofert</a>
+        <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia.php">Szukaj ofert</a>
 
         </div>
       </div>

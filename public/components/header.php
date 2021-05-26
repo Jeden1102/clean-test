@@ -20,9 +20,9 @@
         <div class="hidden md:block sm:ml-6 my-auto">
           <div class="flex space-x-4 items-center">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="../../index.php" class="hover:bg-blue-300 text-black px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
-            <a href="../views/ogloszenia.php" class="hover:bg-blue-300 text-gray-700 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
-            <a href="../views/users.php" class=" hover:bg-blue-300 text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
+            <a href="../../index.php" class="nav-link text-black px-3 py-2 rounded-md text-sm font-medium">Strona główna</a>
+            <a href="../views/ogloszenia.php" class="nav-link text-gray-700  px-3 py-2 rounded-md text-sm font-medium">Ogłoszenia</a>
+            <a href="../views/users.php" class="nav-link text-gray-700  px-3 py-2 rounded-md text-sm font-medium">Użytkownicy</a>
           </div>
         </div>
       </div>

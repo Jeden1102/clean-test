@@ -147,12 +147,15 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <td class='w-20  text-left py-3 px-4'>". $value['score']."  </td>
               <td class='w-20 text-left py-3 px-4'><a class='hover:text-blue-500' >
               <div class='flex items-center justify-center flex-column text-center'>
-              <form method='POST' action ='../../back/ban-uz.php?id=". $value['to_user_id']."'".">
-              <input name='date' type='date' class='form-control mt-4' id='exampleFormControlInput1' >
-              <button  class='bg-red-400 show-reset-btn hover:bg-red-500 border-1 w-20 h-20 font-bold text-white mx-2 border-red-500 ml-2 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
+              <form class='flex flex-row' method='POST' action ='../../back/ban-uz.php?id=". $value['to_user_id']."'".">
+              <div>
+              <p>Czas zablokowania konta</p>
+              <input required name='date' type='date' class='form-control mt-4' id='exampleFormControlInput1' >
+              </div>
+              <button  class='bg-red-400 show-reset-btn hover:bg-red-500 border-1 w-20 h-20 font-bold text-white  border-red-500 ml-8 rounded'><p class='shadowek'>ZBANUJ <i class='far fa-trash-alt text-2xl mx-2'></i></p></button>
 
                 </form>
-              <form method='POST' action ='../../../public/views/user.php?id=". $value['to_user_id']."'".">
+              <form class='mt-4' method='POST' action ='../../../public/views/user.php?id=". $value['to_user_id']."'".">
               <button class='bg-blue-400 hover:bg-blue-500 border-1 w-20 h-20 font-bold text-white mx-2 border-blue-500 rounded'><p class='shadowek'>POKAŻ <i class='far fa-eye text-2xl mx-2'></i></p></button>
               </form>
               </div>

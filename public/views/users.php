@@ -14,12 +14,10 @@ $result = $conn->query($sql);
 $json2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 //get all users
-
-$sql = "SELECT * from user where active = 1;";
+$sql = "SELECT *,AVG(score) as 'wynik' from user LEFT JOIN notes ON user.user_id = notes.to_user_id where active = 1 GROUP BY user_id ORDER by wynik desc;";
 $result = $conn->query($sql);
 
 $json3 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 //scores zmiana
 
 ?>
@@ -55,6 +53,7 @@ include '../components/header.php';
 ?>
 <div class="container mt-4">
 <div class="main-body">
+  <h2>Lista użytkowników</h2>
 
 
 
@@ -106,6 +105,9 @@ include '../components/header.php';
        
         </div>
       </div>
+      <?php
+      // include './account_rating.php';
+      ?>
     </div>
     </div>
    
