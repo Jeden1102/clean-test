@@ -112,7 +112,7 @@ include '../components/admins-view.php';
                         </div>
                         ';
                     }
-                    else if(isset($_SESSION['email'])){
+                    else if(isset($_SESSION['email'])&&$json[0]['status']!=1){
                     echo '<div>
                     <a href="../../back/user_applies.php?order_id='.$id.'"><button type="button" class="ml-4 next-step  inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Aplikuj
@@ -122,7 +122,7 @@ include '../components/admins-view.php';
                     </button>
                     </div>
                     ';
-                    }else{
+                    }else if($json[0]['status']!=1){
                         echo '<p>Aby aplikować do tego ogłoszenia lub zgłosić nieprawidłowość zawartość utwórz konto lub zaloguj się.</p>
                         <a href="./login-register.php">
                         <button type="button" class="show-reset-btn mt-4 w-40 ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-400 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -131,6 +131,8 @@ include '../components/admins-view.php';
                          </a>
                         ';
 
+                    }else{
+                        echo '<p>To ogłoszenie zostało już ukończone przez innego użytkownika!</p>';
                     }
                     include '../components/reportOgl.php';
                     ?>
@@ -151,7 +153,6 @@ include '../components/admins-view.php';
 
                     $sql = "SELECT * from orders WHERE status IN(0,2) AND date>CURRENT_DATE;";
                     $result = $conn->query($sql);
-                    echo $sql;
                     $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     foreach ($json as $value) {

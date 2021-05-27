@@ -53,17 +53,40 @@ include '../components/header.php';
 ?>
 <div class="container mt-4">
 <div class="main-body">
-  <h2>Lista użytkowników</h2>
-
-
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
+      <h1>TOP 4 UŻYTKOWNIKÓW</h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm ">
       <?php
-      foreach($json3 as $value){
+      foreach($json3 as $key=>$value){
         $link = "./user.php?id=" . $value['user_id'];
+        if($key==3){
+          echo "<p class='col w-full'></p>
+
+          <div class='leaf'>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>     
+          </div>
+
+          <div class='leaf leaf1'>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
+            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>      
+          </div>";
+        }
+        if($key==10){
+          echo "<p class='col w-full'></p>";
+        }
         echo '
-        <div class="col mb-3 h-96 ">
-        <div class="card h-full ">
+        <div class="col mb-3 h-96">
+        <div class="card h-full overflow-hidden">
           <div class="w-full  h-20 bg-gray-800"></div>
           <div class="card-body text-center relative">
             <img src="../../uploads/user_avatars/' .  $value['image_url'] . '" style="width:100px;margin-top:-65px" alt="User" class="h-24 img-fluid img-thumbnail rounded-circle border-0 mb-3">

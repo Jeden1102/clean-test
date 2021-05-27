@@ -148,7 +148,7 @@ $json = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <div class="w-40" >
                 <p class="text-center">Cena :</p>
                 <div class="input-group">
-                  <input minlength="1" type="number" name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
+                  <input minlength="1" type="number" name="order_price" min="10" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
                   <span class="input-group-text">zł</span>
                 </div>
               </div>

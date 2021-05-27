@@ -164,7 +164,7 @@ include '../components/header.php';
 
                     <div class="input-group">
                     <p class="text-2xl my-2 w-3/4">Edytuj cenę</p>
-                    <input minlength="1" type="number" value='.$json[0]["order_price"].' name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
+                    <input minlength="1" type="number" min="10" value='.$json[0]["order_price"].' name="order_price" class="form-control" aria-label="Amount (to the nearest dollar)" id="inputPrice">
                     <span class="input-group-text">zł</span>
                   </div>
                     

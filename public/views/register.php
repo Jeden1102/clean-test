@@ -5,22 +5,22 @@
     <form class="row g-3 lg:w-1/2 register-form" method="POST" action="../../back/register.php">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Adres e-mail</label>
-          <input name="mail" type="email" placeholder="example@mail.pl" class="form-control email-register" >
+          <input name="mail" type="email" maxlength="30" placeholder="example@mail.pl" class="form-control email-register" >
           <div class="form-text email-register-error"></div>
         </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Hasło</label>
-          <input name="password" placeholder="******" type="password" class="form-control pwd-first">
+          <input name="password" maxlength="40" placeholder="******" type="password" class="form-control pwd-first">
           <div class="form-text password-register-error-first"></div>
         </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Powtórz hasło</label>
-          <input placeholder="******" type="password" class="form-control pwd-repeat" >
+          <input placeholder="******" maxlength="40" type="password" class="form-control pwd-repeat" >
           <div class="form-text password-register-error-repeat"></div>
         </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Login</label>
-          <input name="login" placeholder="TwojLogin123" type="text" class="form-control login-input">
+          <input name="login" maxlength="30" placeholder="TwojLogin123" type="text" class="form-control login-input">
           <div class="form-text login-register-error"></div>
         </div>
         <div class="col-12">
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn bg-green-400 text-white sign-btn">Sign in</button>
+          <button type="submit" class="btn bg-green-400 text-white sign-btn">Zarejestruj</button>
         </div>
         
        
