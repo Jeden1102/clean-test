@@ -143,9 +143,7 @@ include '../components/header.php';
               <button type="submit" class="w-24 mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Zapisz
               </button>
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
       </form>
-          </div>
       </div>
       
     </div>
@@ -189,6 +187,12 @@ include '../components/header.php';
     </div>
   </div>
 </div>
+
+<?php
+        include '../components/footer.php';
+
+    ?>
+
 <?php
 include '../components/deleteacc.php';
 
@@ -246,6 +250,8 @@ if(isset($_GET["mailTaken"])){
   </script>";
 }
 ?>
+
+
 </body>
 </html>
 <script>

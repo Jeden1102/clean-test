@@ -1,4 +1,4 @@
-<div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+<div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
       <?php
     if(empty($jsonOffers)){
 

@@ -14,7 +14,7 @@ session_start();
     <link href="../styles.css" rel="stylesheet"/>
     <link href="../additionalcss.css" rel="stylesheet"/>
 </head>
-<body>
+<body class="overflow-x-hidden">
 <?php
 if(isset($_SESSION['admin'])){
 include '../components/admins-view.php';
@@ -28,7 +28,7 @@ include '../components/header.php';
 ?>
 
 
-    <div class=" relative">
+    <div class=" relative ">
     <div class="hidden loading absolute top-0 left-0 w-full h-full bg-red-300 flex justify-center items-center" style="background:rgba(1, 1, 1, .3);">
     <i class="fas fa-spinner text-5xl text-white animate-spin opacity-1"></i>
     </div>
@@ -91,7 +91,10 @@ include '../components/header.php';
         </div>
         
     </div>
+    <?php
+        include '../components/footer.php';
 
+    ?>
 
     <?php
         include '../components/mobile-nav.php';

@@ -53,33 +53,26 @@ include '../components/header.php';
 ?>
 <div class="container mt-4">
 <div class="main-body">
-      <h1>TOP 4 UŻYTKOWNIKÓW</h1>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm ">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Użytkownicy</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Szukasz zleceniobiorców?
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Sprawdź najlepszych z najlepszych użytkowników naszego portalu !
+      </p>
+    </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm  ">
+      <div class="w-20  flex items-center justify-center text-3xl ">
+      <h2 class=" transform top-rotate tracking-wider">TOP3</h2>
+      </div>
       <?php
       foreach($json3 as $key=>$value){
         $link = "./user.php?id=" . $value['user_id'];
         if($key==3){
-          echo "<p class='col w-full'></p>
-
-          <div class='leaf'>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>     
-          </div>
-
-          <div class='leaf leaf1'>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>
-            <div><span class='fa fa-star text-yellow-300 text-6xl'></span></div>      
-          </div>";
+          echo "<h2>koniec</h2>
+";
         }
         if($key==10){
           echo "<p class='col w-full'></p>";
@@ -133,7 +126,10 @@ include '../components/header.php';
       ?>
     </div>
     </div>
-   
+    <?php
+        include '../components/footer.php';
+
+    ?>
  
 <?php
         include '../components/mobile-nav.php';

@@ -77,14 +77,11 @@ pwdRepeatInput.addEventListener("keyup",()=>{
     
 });
 function checkValidate(){
-    console.log('tak');
    
     if(emailValidated & pwdValidated & loginValidated & pwdRepeatValidated){
         btn.disabled = false;
-        console.log('zwalidowana');
     }else{
         btn.disabled = true;
-        console.log('niezwalidowa');
 
     }
 }

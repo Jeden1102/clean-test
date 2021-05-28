@@ -46,7 +46,7 @@
     transition: .3s;
 }
 .filter-translate{
-    transform: translateX(10%);
+    transform: translateX(0%);
 }
 .checked-item{
     border:3px solid black;
@@ -93,6 +93,9 @@
     width:100%;
     height: 100%;
     overflow: hidden;
+}
+.top-rotate{
+    transform: rotate(270deg);
 }
 @-webkit-keyframes animateBubble {
     0% {

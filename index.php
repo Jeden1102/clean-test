@@ -74,13 +74,6 @@ Sesja administartora
         </div>
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button class="bg-green-400 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-          <span class="sr-only">View notifications</span>
-          <!-- Heroicon name: outline/bell -->
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-        </button>
         <div><div class="relative ">
         <?php
         if(isset($_SESSION['email'])){
@@ -127,7 +120,7 @@ Sesja administartora
 <div class="w-full h-screen">
 
 
-    <div class="h-3/5  blur relative flex items-center justify-center"  style="background-image:url('./public/assets/img/wave2.svg');background-size:cover;background-position:center">
+    <div class="h-4/5 sm:h-3/5   blur relative flex items-center justify-center"  style="background-image:url('./public/assets/img/wave2.svg');background-size:cover;background-position:center">
 
       <div class="w-full h-4/5  absolute">
       <div id="background-wrap">
@@ -143,25 +136,25 @@ Sesja administartora
     <div class="bubble x10"></div>
       </div>
         <h1 class="text-center  text-black  font-bold text-5xl mt-8 head-witamy">Click<span class="text-green-400">&</span>Clean</h1>
-        <p class="text-center text-black mt-8 font-light px-2  sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług!Platforma łącząca ludzi posiadający srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
+        <p class="text-center text-black mt-8 font-light px-2 text-xl  sm:w-3/4 mx-auto">Click&Clean to sprawdzona firma, działająca na rynku już od lat. Naszej firmie zaufały setki klientów – zarówno prywatnych użytkowników jak i firmy prowadzące własne działalności gospodarcze. Sprawdź poniżej dlaczego warto skorzystać z naszych usług! Platforma łącząca ludzi posiadających srogie hacjendy z ludźmi mającymi ręce i minimum zdolności manualnych, żeby posprzątać.<p>
         <div class="flex w-full items-center justify-center mt-4 ">
         <?php
         if(isset($_SESSION['email'])){
           echo '
 
-      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia-uzyt.php">Zostań wykonwacą</a>
+      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia-uzyt.php">Zostań zleceniodawcą</a>
           ';
         }else{
           echo '
 
-      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/login-register.php">Zostań wykonwacą</a>
+      <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/login-register.php">Zostań zleceniodawcą</a>
           ';
         }
         ?>
-        <p class="text-white sm:ml-4">LUB</p>
+        <p class="text-black mx-4">LUB</p>
 
 
-        <a class="ml-4 z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia.php">Szukaj ofert</a>
+        <a class="z-10 next-step  inline-flex justify-center py-2 px-4  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="./public/views/ogloszenia.php">Szukaj ofert</a>
 
         </div>
       </div>
@@ -314,43 +307,6 @@ Sesja administartora
 
     </section>
     <!-- Section: Social media -->
-
-    <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example2" class="form-control" />
-              <label class="form-label" for="form5Example2">Email address</label>
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
-    <!-- Section: Form -->
 
     <!-- Section: Text -->
     <section class="mb-4">

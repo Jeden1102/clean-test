@@ -31,7 +31,7 @@ require '../../back/conn.php';
 
 
   </script>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden relative">
 <?php
 if(isset($_SESSION['admin'])){
 include '../components/admins-view.php';
@@ -40,7 +40,7 @@ include '../components/admins-view.php';
 <?php
 include '../components/header.php';
 ?>
-    <div class="lg:flex">
+    <div class="lg:flex min-h-screen">
     <!-- FILTRY -->
     <div class="w-full lg:w-1/3">
     
@@ -48,7 +48,7 @@ include '../components/header.php';
           <img class="w-12" src="../assets/img/filter.png" alt="">
 
       </button>
-      <div class="w-full lg:w-1/5 mx-auto h-screen bg-white card shadow filter-box mx-auto absolute left-0 top-44">
+      <div class="w-full lg:w-1/5 h-1/5 lg:h-screen bg-white card shadow filter-box mx-auto absolute left-0 top-44 z-2">
           <div class="w-4/5 mx-auto">
               <h2 class="my-4 text-2xl font-light text-center">Filtruj swoje wyszukiwania</h2>
               <form action="../../back/ogl-filtr.php" method="POST">
@@ -62,11 +62,11 @@ include '../components/header.php';
 
           <input name="max" type="number" min="1" value="<?php if(isset($_GET['minPrice'])){echo $_GET['order_price'];}?>" type="text" class="form-control maximum" id="exampleInputEmail1" placeholder="max" aria-describedby="emailHelp">
 
-          <!-- <input type="text" id="amount" readonly class="text-green-400 font-bold " > -->
+          
 
           </p>
   
-          <!-- <div id="slider-range"></div> -->
+          
           <div class="mt-4">
           <p>Wybierz rodzaj usługi (możesz wybrać więcej opcji na raz)</p>
           <div class="flex flex-wrap">
@@ -96,12 +96,11 @@ include '../components/header.php';
               
           </div>
           </div>
-          <!-- <button type="submit" class="mt-4 next-step w-40 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Filtruj
-          </button> -->
+          
           </form>
       </div>
     </div>
+
     </div>
     <!-- Content -->
 
@@ -139,25 +138,21 @@ include '../components/header.php';
 
 
     </div>
+
     </div>
-   
+    <?php
+        include '../components/footer.php';
+
+    ?>
  
-<?php
+<?php 
         include '../components/mobile-nav.php';
 ?>
 </body>
 </html>
-<script src="../scripts/showFilter.js">
-
-</script>
+<script src="../scripts/showFilter.js"></script>
 <script src="../scripts/checkboxes.js"></script>
-
-
-</script>
 <script src="../scripts/getApiData.js"></script>
-
-
-</script>
 <?php
     if(isset($_GET["oglBan"])){
       ?>

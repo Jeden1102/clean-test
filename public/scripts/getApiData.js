@@ -1,25 +1,4 @@
-//1 step get ALL orders
-//     let min1 = 0;
-//     let max2 = 0;
-//   $( function() {
-//     $( "#slider-range" ).slider({
-//       range: true,
-//         values:[0,500],
-//       slide: function( event, ui ) {
-//         $( "#amount" ).val( "zł " + ui.values[ 0 ] + " - zł " + ui.values[ 1 ] );
-//         min1 = ui.values[0];
-//         max2 = ui.values[1];
-//         filterResults();
 
-//         $( "#slider-range" ).slider( "option", "max", highest );
-//         $( "#slider-range" ).slider( "option", "min", 0 );
-//       }
-//     });
-
-//     $( "#amount" ).val( "zł " + $( "#slider-range" ).slider( "values", 0 ) +
-//       " - zł " + $( "#slider-range" ).slider( "values", 1 ) );
-
-//   } );
 getAllOrders();
 let orders;
 let highest;
@@ -78,7 +57,7 @@ function showAllResults(data){
             </div>
            
             <div class='font-light mt-2 md:ml-4'>
-            ${element.city} ,${element.street}, ${element.number} "
+            ${element.city} ,${element.street}, ${element.number} 
             </div>
             <div class='font-light mt-2 md:ml-4'>
             Kategorie : ${samochod}   ${okna}   ${dom} 
@@ -139,7 +118,6 @@ function filterResults(){
         okna : ch2.checked,
         sprzatanie : ch3.checked,
       };
-      console.log(filter);
     getAllOrders();
     // czyszczenie  diva
     if(filter.min != 0 && filter.max ==0){
@@ -177,7 +155,7 @@ function filterResults(){
     }
     
     if(orders.length == 0){
-        ogloszenia.innerHTML = "Brak dostępnych wyszkiwań, spróbuj użyć innych filtrów."
+        ogloszenia.innerHTML = "<h1 class='font-bold text-center'>Brak dostępnych wyszukiwań, spróbuj użyć innych filtrów.</h1>"
     }
 
     orders.forEach(element => {

@@ -36,7 +36,7 @@
                 $json_user_applied = mysqli_fetch_all($result_user_applied, MYSQLI_ASSOC);
                 echo "
              
-                <div class=' w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full'>
+                <div class='shadow w-11/12  mx-auto my-2 md:flex md:flex-row-reverse h-full'>
                   <!--ZDJĘCIE-->
                   <div class='md:w-1/3  w-full mx-auto rounded  h-60' style='background-image:url($img);background-size:cover;background-position:center'>
          
@@ -76,7 +76,7 @@
                     if(empty($json_user_applied)){
                         echo '
                         <div class="alert alert-danger w-5/6" role="alert">
-                        Do tego zgłoszenia nie ma jeszcze żadnych chętnych
+                        Do tego ogłoszenia nie ma jeszcze żadnych chętnych
                       </div>
                         ';
                     }else{

@@ -115,6 +115,11 @@ include '../components/header.php';
     
     </div>
 </div>
+
+<?php
+  include '../components/footer.php';
+?>
+
 <?php
 include '../components/deleteacc.php';
 
